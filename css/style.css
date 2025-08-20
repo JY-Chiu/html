@@ -201,6 +201,10 @@ img{
 .dropdown_sublink{
     background-color: var(--dropdown-color-light);
 }
+.dropdown_item:hover > .nav_link .dropdown_arrow{
+    transform: rotate(180deg);
+    transition: transform 0.4s ease;
+}
 /*=============== for small devices ===============*/
 @media screen and (max-width: 440px){
     .nav_container{
