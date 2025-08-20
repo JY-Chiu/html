@@ -8,16 +8,20 @@ const showMenu = (toggleId, navId) =>{
 }
 showMenu('nav-toggle','nav-menu')
 
-/* 只針對一般連結（沒有下拉的）關閉整個 nav-menu */
+/* 只針對沒有下拉的連結才會關閉整個 nav-menu */
 const navLinks = document.querySelectorAll('.nav_list > li > a.nav_link');
 
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        const nav = document.getElementById('nav-menu');
-        const toggle = document.getElementById('nav-toggle');
-        nav.classList.remove('show-menu');
-        toggle.classList.remove('show-icon');
-    });
+    // 檢查這個 <li> 是否有 dropdown_menu
+    const parentLi = link.parentElement;
+    if (!parentLi.classList.contains("dropdown_item")) {
+        link.addEventListener('click', () => {
+            const nav = document.getElementById('nav-menu');
+            const toggle = document.getElementById('nav-toggle');
+            nav.classList.remove('show-menu');
+            toggle.classList.remove('show-icon');
+        });
+    }
 });
 
 /* 處理 dropdown（專業服務、解決方案） */
@@ -26,15 +30,14 @@ const dropdownItems = document.querySelectorAll('.dropdown_item');
 dropdownItems.forEach(item => {
     const link = item.querySelector('.nav_link');
     link.addEventListener('click', (e) => {
-        e.preventDefault(); // 阻止連結直接收合 menu
+        e.preventDefault(); // 阻止超連結直接收合 nav-menu
 
-        // 切換 show-dropdown class
-        if (item.classList.contains("show-dropdown")) {
-            item.classList.remove("show-dropdown");
-        } else {
-            // 關掉其他 dropdown
-            dropdownItems.forEach(i => i.classList.remove("show-dropdown"));
-            item.classList.add("show-dropdown");
-        }
+        // 切換展開 / 收合
+        item.classList.toggle("show-dropdown");
+
+        // 如果要同時間只允許一個展開，就加這段
+        dropdownItems.forEach(i => {
+            if (i !== item) i.classList.remove("show-dropdown");
+        });
     });
 });
