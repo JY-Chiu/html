@@ -8,10 +8,9 @@ const showMenu = (toggleId, navId) =>{
 }
 showMenu('nav-toggle','nav-menu')
 
-// 取得所有「一般連結」（不包含有下拉的）
+/* 只針對一般連結（沒有下拉的）關閉整個 nav-menu */
 const navLinks = document.querySelectorAll('.nav_list > li > a.nav_link');
 
-// 點擊「一般連結」才會關閉整個選單
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         const nav = document.getElementById('nav-menu');
@@ -21,19 +20,19 @@ navLinks.forEach(link => {
     });
 });
 
-// 下拉選單點擊展開 / 收合
+/* 處理 dropdown（專業服務、解決方案） */
 const dropdownItems = document.querySelectorAll('.dropdown_item');
 
 dropdownItems.forEach(item => {
     const link = item.querySelector('.nav_link');
     link.addEventListener('click', (e) => {
-        e.preventDefault(); // 防止 # 跳轉
+        e.preventDefault(); // 阻止連結直接收合 menu
 
-        // 如果已經打開，再點擊就收合
+        // 切換 show-dropdown class
         if (item.classList.contains("show-dropdown")) {
             item.classList.remove("show-dropdown");
         } else {
-            // 先關閉其他 dropdown，再打開自己
+            // 關掉其他 dropdown
             dropdownItems.forEach(i => i.classList.remove("show-dropdown"));
             item.classList.add("show-dropdown");
         }
