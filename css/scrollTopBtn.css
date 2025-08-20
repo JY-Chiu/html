@@ -1,0 +1,32 @@
+#scrollTopBtn{
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    background-color: var(--dropdown-color-light);
+    color: var(--black);
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    border: 2px solid var(--dropdown-color-light);
+    box-shadow: 0 4px 6px rgb(192, 179, 236);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 99999;
+}
+#scrollTopBtn.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+#scrollTopBtn:hover{
+    background-color: var(--dropdown-color-lighten);
+}
+@media screen and (max-width: 440px) {
+    #scrollTopBtn{
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 12px;
+        font-size: 20px;
+    }
+}

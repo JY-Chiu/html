@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/*=============== 變數宣告 ===============*/
+:root{
+    --header-height: 3.5rem;
+    --body-font: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --normal-font-size: 1rem;
+    --primary: ;
+    --secondary: ;
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --body: hsl(220, 100%, 97%);
+    --grey1: hsl(0, 0%, 40%);
+    --grey2: hsl(0, 0%, 80%);
+
+
+
+    --header-color: hsl(240, 100%, 95%);
+    --dropdown-color-light: hsl(240, 100%, 90%);
+    --dropdown-color-lighten: hsl(240, 100%, 85%);
+    --footer-background: hsl(0, 0%, 20%);
+    --font-semi-bold: 600;
+}
+/*=============== 版面基本樣式 ===============*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin-top: var(--header-height);
+    /* margin: var(--header-height) 0 0 0; */
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body);
+    color: var(--black);
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+/*=============== header ===============*/
+.nav_container{
+    max-width: 1120px;/*最大寬度*/
+    margin-inline: 1.5rem;/*左右間隔*/
+}
+.header{
+    position: fixed;/*固定在畫面上*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-color);
+    box-shadow: 0 2px 16px hsla(220, 32%, 8%, 0.3);/*加陰影效果*/
+    z-index: 1000;
+}
+.logo_png{
+    display: flex;
+    height: 3rem;
+    width: auto;
+    align-items: center;
+    object-fit: cover;/*裁切並填滿容器*/
+}
+.nav{
+    height: var(--header-height);
+}
+/*=============== nav漢堡 ===============*/
+.nav_toggle{
+    color: var(--black);
+}
+.nav_data{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;/*左右兩側元素平均分散，靠左靠右排列*/
+    align-items: center;/*垂直置中對齊內容*/
+}
+.nav_toggle{
+    position: relative;/*相對定位，給裡面的絕對定位元素做定位依據*/
+    width: 32px;
+    height: 32px;
+}
+.nav_burger,
+.nav_close{
+    position: absolute;/*絕對定位，讓兩個圖示疊在同個區塊中*/
+    width: max-content;/*寬度根據內容調整*/
+    height: max-content;/*高度根據內容調整*/
+    inset: 0;/*top、right、bottom、left 都設為 0，讓元素完全貼齊父層邊界*/
+    margin: auto;/*在父層範圍內完全置中*/
+    font-size: 1.25rem;
+    cursor: pointer;/*滑鼠移過去會顯示為可點擊的手形*/
+    transition: opacity .1s, transform .4s;/*點選切換動畫：透明度快速切換、旋轉平滑過渡*/
+}
+.nav_close{
+    opacity: 0;/*預設「關閉圖示」為隱藏狀態*/
+}@media screen and (max-width: 1118px) {
+    .nav_menu{
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        width: 100%;
+        /* background-color: gray; */
+        height: calc(100vh - 3.5rem);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+    }
+    .nav_menu::-webkit-scrollbar{
+        width: 0;
+    }
+    .nav_list{
+        background-color: var(--header-color);
+        padding: 1rem;
+    }
+    .logo_png{
+        padding-top: 0.5rem;
+    }
+}
+.nav_link{
+    color: var(--grey1);
+    background-color: var(--header-color);
+    font-weight: var(--font-semi-bold);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color .3s;
+    cursor: pointer;
+}
+.nav_link:hover{
+    background-color: var(--dropdown-color-light);
+    color: var(--black);
+}
+.show-menu{
+    opacity: 1;
+    top: 3.5rem;
+    pointer-events: initial;
+}
+.show-icon .nav_burger{
+    opacity: 0;
+    transform: rotate(90deg);
+}
+.show-icon .nav_close{
+    opacity: 1;
+    transform: rotate(90deg);
+}
+/*=============== dropdown ===============*/
+.dropdown{
+    cursor: pointer;/* 滑鼠移到元素上時顯示為手指形狀，表示可點擊 */
+}
+.dropdown_arrow{
+    font-size: 1.25rem;
+    font-weight: initial;/* 使用預設的字重，不繼承父元素 */
+    transition: transform .4s;/* 平滑變形效果，用於箭頭旋轉動畫 */
+}
+.dropdown_link,
+.dropdown_sublink{
+    white-space: nowrap;/* 不換行，避免文字換行破壞排版 */
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;/* 設定內距，左邊較大以對齊子選單圖示或縮排 */
+    color: var(--grey1);
+    background-color: var(--dropdown-color-light);
+    display: flex;
+    align-items: center;/* 垂直置中 */
+    column-gap: 1.5rem;/* 圖示與文字之間的水平間距 */
+    font-weight: var(--font-semi-bold);
+    transition: background-color .3s;/* 背景變化加上漸變效果 */
+}
+.dropdown_link i,
+.dropdown_sublink i{
+    font-size: 1.25rem;
+    font-weight: initial;/* 圖示不繼承粗細 */
+}
+.dropdown_link:hover,
+.dropdown_sublink:hover{
+    background-color: var(--dropdown-color-lighten);/* 滑鼠懸停時背景顏色變亮 */
+    color: var(--black);
+}
+.dropdown_menu,
+.dropdown_submenu{
+    max-height: 0;/* 初始為 0 高度，隱藏內容 */
+    overflow: hidden;/* 超出部分隱藏 */
+    transition: max-height .4s ease-out;/* 展開/收合使用漸變動畫 */
+}
+.dropdown_item:hover .dropdown_menu,
+.dropdown_subitem:hover > .dropdown_submenu{
+    max-height: 1000px;/* 滑鼠懸停時最大高度打開（大數值以保證展開） */
+    transition: max-height .4s ease-in;/* 展開動畫使用 ease-in */
+}
+.dropdown_item:hover .dropdown_arrow{
+    transform: rotate(180deg);/* 滑鼠懸停時箭頭旋轉180度，表示展開狀態 */
+}
+.dropdown_add{
+    margin-left: auto;/* 元素靠右排列，常用於添加圖示或展開箭頭 */
+}
+.dropdown_sublink{
+    background-color: var(--dropdown-color-light);
+}
+/*=============== for small devices ===============*/
+@media screen and (max-width: 440px){
+    .nav_container{
+        margin-inline: 1rem;
+    }
+    .nav_link{
+        padding-inline: 1rem;
+    }
+    .logo_png{
+        padding-top: 0.5rem;
+        height: 2.5rem;
+        width: auto;
+        align-items: center;
+    }
+}
+/*=============== for large devices ===============*/
+@media screen and (min-width: 1118px){
+    .nav_container{
+        margin-inline: auto;
+    }
+    .nav{
+        height: calc(var(--header-height) + 2rem);
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav_toggle{
+        display: none;
+    }
+    .nav_list{
+        height: 100%;
+        display: flex;
+        column-gap: 2rem;
+    }
+    .nav_link{
+        height: 100%;
+        padding: 0;
+        justify-content: initial;
+        column-gap: .25rem;
+    }
+    .nav_link:hover{
+        background-color: transparent;
+    }
+    .dropdown_item,
+    .dropdown_subitem{
+        position: relative;
+    }
+    .dropdown_menu,
+    .dropdown_submenu{
+        position: initial;
+        overflow: initial;
+        position: absolute;
+        left: -1rem;
+        top: 6rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s, top .3s;
+    }
+    .dropdown_link,
+    .dropdown_sublink{
+        padding-inline: 1rem 3.5rem;
+    }
+    .dropdown_subitem .dropdown_link{
+        padding-inline: 1rem;
+    }
+    .dropdown_submenu{
+        position: absolute;
+        left: 100%;
+        top: .5rem;
+    }
+    .dropdown_item:hover .dropdown_menu{
+        opacity: 1;
+        top: 5.5rem;
+        pointer-events: auto;
+        transition: top .3s;
+    }
+    .dropdown_subitem:hover > .dropdown_submenu{
+        opacity: 1;
+        top: 0;
+        pointer-events: initial;
+        transition: top .3s;
+    }
+}

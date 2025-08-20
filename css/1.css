@@ -1,0 +1,44 @@
+
+/* 手機（直式） */
+@media screen and (max-width: 575px){
+    /* 這裡放手機直式樣式 */
+}
+/* 手機（橫式） */
+@media screen and (min-width: 576px) and (max-width: 767px){
+    /* 這裡放手機橫式樣式 */
+}
+/* 平板 */
+@media screen and (min-width: 768px) and (max-width: 991px){
+    /* 這裡放平板樣式 */
+}
+/* 小型桌機 / 筆電 */
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    /* 這裡放小型桌機樣式 */
+}
+/* 桌機（大於 1200px） */
+@media screen and (min-width: 1200px){
+    /* 這裡放桌機樣式 */
+}
+
+
+
+.container{
+    width: 100%;
+    padding: 0 15px;
+}
+@media screen and (min-width: 768px){
+    .container{
+        max-width: 720px;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width: 992px){
+    .container{
+        max-width: 960px;
+    }
+}
+@media screen and (min-width: 1200px){
+    .container{
+        max-width: 1140px;
+    }
+}
