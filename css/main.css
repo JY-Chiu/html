@@ -42,7 +42,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./img/home.jpg'); /* ← 改成你的圖片路徑 */
+    background-image: url('../img/home.jpg'); /* ← 改成你的圖片路徑 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
