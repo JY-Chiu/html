@@ -53,3 +53,10 @@ sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 sudo systemctl restart nginx
 sudo systemctl restart php8.x-fpm
 ```
+
+* phpmysql 登入者設定 root
+```console
+sudo mysql -u root
+SELECT user, host, plugin FROM mysql.user;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+```
