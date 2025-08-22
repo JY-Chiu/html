@@ -13,10 +13,10 @@ sudo apt autoremove
 sudo apt install nginx
   sudo systemctl start nginx
   sudo systemctl enable nginx
-sudo apt install mariadb-server
+sudo apt install mariadb-server mariadb-client
   sudo mysql_secure_installation (安全性設定)
   sudo mysql -u root -p (登入測試)
-sudo apt install php-fpm php-mysql php-gd php-curl php-mbstring php-zip php-json
+sudo apt install php-fpm php-cli php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl php-opcache php-readline php-xml php-gd php-json
   php -v
 ```
 
