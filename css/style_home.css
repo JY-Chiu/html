@@ -1,0 +1,128 @@
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+        *{
+            box-sizing: border-box;
+        }
+        html,body{
+            margin: 0;
+            padding: 0;
+   			padding-top: 25px;
+        }
+        body{
+            font-family: 'Lato', sans-serif;
+            line-height: 1.4;
+            font-size: 18px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        h1{
+            font-family: 'Lato', sans-serif;
+            font-weight: 100;
+            font-size: 52px;
+            line-height: 1.3;
+            margin: 50px 0 0;
+            color: #388fff;
+        }
+        h2{
+            font-family: 'Lato', sans-serif;
+            font-weight: 100;
+            font-size: 38px;
+            line-height: 1.3;
+            margin: 16px 0 0;
+            color: #388fff;
+        }
+        h3{
+            font-family: 'Lato', sans-serif;
+            font-weight: 100;
+            font-size: 24px;
+            line-height: 1.3;
+            margin: 12px 0 0;
+        }
+        
+        
+/*navbar dropdown-menu */
+		.dropdown-menu {
+        	text-align: center;
+            font-size: 18px;
+		}
+        
+/* carousel SECTION
+-------------------------------------------------- */
+     	.carousel .carousel-inner{
+			max-height: 400px;
+     	}
+/* image SECTION
+-------------------------------------------------- */
+		.container-fluid img {
+			width: 300px;
+			height: 300px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+		} 
+		.container-fluid .img-thumbnail {
+			width: auto;
+			height: 80px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+		}
+		
+		.container-fluid .img-stc {
+			width: auto;
+			height: 50px;
+			margin-bottom: 0px;
+			border-radius: 0px;
+		} 
+		.container-fluid .img-logo {
+			width: 50px;
+			height: 50px;
+			margin-bottom: 5px;
+			border-radius: 5px;
+		}
+/* btn SECTION
+-------------------------------------------------- */
+        .btn{
+            display: inline-block;
+            padding: 10px 16px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            background: #fafafa;
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .btn .fa{margin-right: 12px;}
+
+        .btn:hover{
+            color: #ffffff;
+            background: #00da78;
+        }
+
+        .container{
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+/* footer SECTION
+-------------------------------------------------- */
+        .footer{
+            font-size: 18px;
+            padding: 20px 0;
+            background: #333333;
+            color: #999999;
+        }
+        .footer h5{
+            font-size: 26px;
+            color: #ffffff;
+        }
+        .footer p{
+            text-align: left;
+        }
+        .footer a{
+            color: #999999;
+        }

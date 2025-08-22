@@ -1,0 +1,169 @@
+
+<!DOCTYPE html PUBLIC "-/W3C//DTD XHTML 1.0 Transtitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>信陽電腦-員工登入</title>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LepU2AnAAAAAHyMgdZFMJjp-aVr0B-G-aUGXjQM"></script>
+<script language="javascript" charset="utf-8">
+function alertcheck()
+{
+	if(null=="1"){
+  		alert('密碼錯誤');
+  		document.form1.password.focus();
+	}  
+  	else if(null=="2"){
+  		alert('無此帳號');
+  		document.form1.account.focus();
+  	}
+  	else if(null=="3"){
+  		alert('密碼到期，需變更密碼!');
+  		window.location="change_staff_login_pw.jsp?account=&state=expired";
+  	}
+  	else if(null=="4")
+  		alert('帳號被鎖定，請聯絡系統管理員!! 楊 凱強：03-3361251');
+  	else if(null=="5"){
+  		alert('帳號到期，請聯絡系統管理員!!  楊 凱強：03-3361251');
+  	}
+  	else if(null=="6"){
+  		alert('第一次登入必須重設密碼!');
+  		window.location="change_staff_login_pw.jsp?account=";
+  	}
+  	else if(null=="7"){
+  		alert('變更密碼已完成，請重新登入!');
+  	}
+
+	if (window.top != window.self)  
+		{ window.top.location="staff_login.jsp" }
+	//如果這個頁面，不是在全畫面時，就跳到location指向的頁面
+}
+</script>
+<link href="css/css.css" rel="stylesheet" type="text/css">
+</head>
+<style type="text/css">
+#Layer1 {
+	position: relative;
+	top: 180px;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+<body onLoad="alertcheck()" bgcolor="#FFFFFF">
+<form action="/check/checklogon" name="form1" method="post">
+<div id="Layer1">
+<table border="0" align="center" cellpadding="0" cellspacing="0">
+ <tr>
+  <td><img src="img/login/new_03.gif" height="25"
+   style="vertical-align: bottom;"></td>
+ </tr>
+ <tr>
+  <td align="right" background="img/login/new_04.gif" height="174">
+  <table border="0" cellpadding="0" cellspacing="0" width="436">
+   <tbody>
+    <tr>
+     <td height="20"></td>
+    </tr>
+    <tr>
+     <td align="center">
+     <table border="0" cellpadding="0" cellspacing="0" width="411">
+      <tbody>
+       <tr>
+        <td><img src="img/login/spacer.gif" height="1" width="1"></td>
+       </tr>
+      </tbody>
+     </table>
+     </td>
+    </tr>
+    <tr>
+     <td
+      style="background: url(img/login/new_01.gif) repeat-x; background-position: 10%;"><img
+      src="img/login/spacer.gif" height="15" width="15"></td>
+    </tr>
+    <tr>
+     <td align="center">
+     <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+       <tr>
+        <td height="30"><font color="#003399">員 工</font> <font
+         color="#003399">帳 號： <input name="account"
+         style="border: 1px solid rgb(0, 51, 153); background: rgb(255, 255, 255) none repeat scroll 0%; width: 90px; font-size: 11px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: rgb(51, 51, 51); font-family: arial;"
+         value="" /> </font></td>
+        <td width="76">&nbsp;</td>
+       </tr>
+       <tr>
+        <td colspan="2" class="txt12">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+         <tbody>
+          <tr>
+           <td height="30"><font color="#003399">員 工 </font><font
+            color="#003399">密 碼： <input name="password"
+            style="border: 1px solid rgb(0, 51, 153); background: rgb(255, 255, 255) none repeat scroll 0%; width: 90px; font-size: 11px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: rgb(51, 51, 51); font-family: arial;"
+            type="password"> </font></td>
+           <td align="right" width="76">
+           <input name="imageField"
+            src="img/login/new_05.gif" alt="登入" border="0" height="20" type="image" width="56">
+            </td>            
+            <!-- hidden reCaptcha token input -->
+            <input type="hidden" id="token" name="token">
+          </tr>
+         </tbody>
+        </table>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     </td>
+    </tr>
+    <tr>
+     <td
+      style="background: url(img/login/new_01.gif) repeat-x; background-position: 10%;"><img
+      src="img/login/spacer.gif" height="15" width="15"></td>
+    </tr>
+    <tr>
+     <td align="center">
+     <table border="0" cellpadding="0" cellspacing="0" width="411">
+      <tbody>
+       <tr>
+        <td><img src="img/login/spacer.gif" height="1" width="1"></td>
+       </tr>
+      </tbody>
+     </table>
+     </td>
+    </tr>
+    <tr>
+     <td align="center" height="40"></td>
+    </tr>
+   </tbody>
+  </table>
+  </td>
+ </tr>
+ <tr>
+  <td><img src="img/login/spacer.gif" height="10" width="10"></td>
+ </tr>
+</table>
+</div>
+</form>
+
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute('6LepU2AnAAAAAHyMgdZFMJjp-aVr0B-G-aUGXjQM', {action: 'login'}).then(function(token) {
+       console.log("Google reCaptcha Token: "+token);
+       document.getElementById("token").value = token;
+    });
+    // refresh token every minute to prevent expiration
+    setInterval(function(){
+      grecaptcha.execute('6LepU2AnAAAAAHyMgdZFMJjp-aVr0B-G-aUGXjQM', {action: 'login'}).then(function(token) {
+        console.log( 'refreshed token:', token );
+        document.getElementById("token").value = token;
+      });
+    }, 60000);
+
+  });
+</script>
+
+<!-- References for the optional jQuery function to enhance end-user prompts -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</body>
+</html>

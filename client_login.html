@@ -1,0 +1,175 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>信陽電腦-客戶報修服務</title>
+<link href="css/css.css" rel="stylesheet" type="text/css">
+<link href="css/div_center.css" rel="stylesheet" type="text/css" />
+<script language="javascript" charset="utf-8">
+
+function alertcheck()
+{
+	if(null=="1"){		
+  		alert('密碼錯誤');
+  		document.form.password.focus();
+  	}
+  	else if(null=="2"){
+  		alert('無此帳號');
+  		document.form.email.focus();
+  	}
+  	else if(null=="3"){
+  		alert('您必須完成帳號的輸入!');
+  		document.form.mail.focus();
+  	}
+  	else if(null=="4"){
+  		alert('您必須完成密碼的輸入!');
+  		document.form.password.focus();
+  	}
+	if (window.top != window.self)  
+		{ window.top.location="client_login.jsp" }
+	//如果這個頁面，不是在全畫面時，就跳到location指向的頁面
+	//loadData=unescape(document.cookie);
+	//loadName=loadData.substring(0,loadData.indexOf(";"));
+	//document.form.email.value=loadName;
+	//從cookie讀取姓名
+}
+
+function CheckForm(){
+	if(document.form.email.value=="")
+	{
+		alert("請輸入帳號!!");
+		document.form.email.focus();
+		return false;
+	}
+	if(document.form.password.value=="")
+	{
+		alert("請輸入密碼!!");
+		document.form.password.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<style type="text/css">
+#Layer1 {
+	position: relative;
+	top: 180px;
+	width:250px;
+    height:200px;
+}
+#Layer2 {
+	position: absolute;
+
+	top:-35px;
+	left:480px;
+}
+#container {
+  margin: 0 auto;
+  width: 60%;
+}
+A:hover {color: red; font-weight: bold}
+</style>
+<body onLoad="alertcheck()">
+<div id="container">
+<div id="Layer1">
+<div id="Layer2">
+<table width="250px" border="0" cellspacing="0" cellpadding="10">
+<tr>
+<td align="left" style="font-family: Arial, Verdana, taipei;font-size: 13px;color: #4B4A4A;line-height: 18px;" style=" word-break: break-all;"><div align="center" style="font-family: Arial, Verdana, taipei;font-size: 16px;font-weight: bold;color: #F35B00;">線上快速支援服務</div><br />
+若您的電腦目前尚可以開機並可連線上網，我們也提供遠端連線維修，請您下載下列軟體，解壓縮後執行，再將軟體出現的ID號碼告知我們的客服人員，讓我們可以連線到該電腦進行檢修。  <br></br><div align="center">
+<a style="text-decoration: none" href="TeamViewerQS_zhtw.exe">軟體下載1(TermViewer.exe)</a> <br>
+<a style="text-decoration: none" href="ShowMyPC3152.exe">軟體下載2(ShowMyPC.exe)</a> <br>
+<a style="text-decoration: none" href="AA_v3.exe">軟體下載3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Ammyy.exe)</a> <br>
+<a style="text-decoration: none" href="AnyDesk.exe">軟體下載4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(AnyDesk.exe)</a> <br>
+</div>
+</td>
+</tr>
+</table>
+</div> 
+  <form name="form" action="client_handle/CheckForm.jsp" method="post" onSubmit="return CheckForm()">
+    <table border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><img src="img/login/client.gif" height="25" width="441"></td>
+      </tr>
+      <tr>
+        <td align="right" background="img/login/new_04.gif" height="174"
+   valign="top"><table border="0" cellpadding="0" cellspacing="0" width="436">
+          <tbody>
+            <tr>
+              <td align="center" height="36"><img src="img/email_login.gif"
+      width="70" height="25"></td>
+            </tr>
+            <tr>
+              <td align="center"><table border="0" cellpadding="0" cellspacing="0" width="411">
+                <tbody>
+                  <tr>
+                    <td background="img/login/new_01.gif"><img
+         src="img/login/spacer.gif" height="1" width="1"></td>
+                  </tr>
+                </tbody>
+              </table></td>
+            </tr>
+            <tr>
+              <td><img src="img/login/spacer.gif" height="15" width="15"></td>
+            </tr>
+            <tr>
+              <td align="center"><table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                  <tr>
+                    <td height="30"><font color="#003399">會 員</font> <font
+         color="#003399">帳 號：
+                      <input name="email"
+         value=""
+         style="border: 1px solid rgb(0, 51, 153); background: rgb(255, 255, 255) none repeat scroll 0%; width: 130px; font-size: 11px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: rgb(51, 51, 51); font-family: arial;" />
+                    </font></td>
+                  </tr>
+                  <tr>
+                    <td class="txt12"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td height="30"><font color="#003399">會 員 </font><font
+            color="#003399">密 碼：
+                            <input name="password"
+            style="border: 1px solid rgb(0, 51, 153); background: rgb(255, 255, 255) none repeat scroll 0%; width: 130px; font-size: 11px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: rgb(51, 51, 51); font-family: arial;"
+            type="password">
+                          </font></td>
+                        </tr>
+                      </tbody>
+                    </table></td>
+                  </tr>
+                </tbody>
+              </table></td>
+            </tr>
+            <tr>
+              <td>
+              <div align="center"><img src="img/login/spacer.gif" height="15" width="15"></div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center"><table border="0" cellpadding="0" cellspacing="0" width="411">
+                <tbody>
+                  <tr>
+                    <td background="img/login/new_01.gif"><img
+         src="img/login/spacer.gif" height="1" width="1"></td>
+                  </tr>
+                </tbody>
+              </table></td>
+            </tr>
+            <tr>
+              <td align="center" height="36">
+              <input type="submit" value="登入系統">
+</td>
+            </tr>
+          </tbody>
+        </table></td>
+      </tr>
+      <tr>
+        <td><img src="img/login/spacer.gif" height="10" width="10"></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</div>
+</body>
+</html>

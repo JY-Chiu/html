@@ -1,0 +1,335 @@
+@charset "utf-8";
+
+body {
+	SCROLLBAR-ARROW-COLOR: #ffffff;
+	SCROLLBAR-BASE-COLOR: #DCDCDC;
+	SCROLLBAR-SHADOW-COLOR: #9C9C9C;
+	COLOR: #666666;
+	SCROLLBAR-3DLIGHT-COLOR: #9C9C9C;
+	SCROLLBAR-DARKSHADOW-COLOR: #ffffff;
+}
+
+body,td,form,input,option,select,textarea,p,ol {
+	font-size: 13px;
+	font-family: "Microsoft JhengHei";
+	Color: #000000;
+	line-height: 1.2;
+}
+
+;
+font {
+	font-family: "Microsoft JhengHei";
+	font-size: 11px;
+	line-height: 1.2
+}
+
+;
+t
+.copyright {
+	color: #604100;
+	text-decoration: none
+}
+
+.copyright A:link {
+	color: #604100;
+	text-decoration: underline
+}
+
+.copyright A:visited {
+	color: #604100;
+	text-decoration: underline
+}
+
+.copyright A:hover {
+	color: #999999;
+	text-decoration: none
+}
+
+.menuLink {
+	font-family: "Microsoft JhengHei";
+	font-size: 12px;
+	color: #666666;
+}
+
+.box {
+	color: #480000;
+	font-size: 12px
+}
+
+;
+.box A:link {
+	color: #480000;
+	text-decoration: underline
+}
+
+.box A:visited {
+	color: #480000;
+	text-decoration: underline
+}
+
+.box A:hover {
+	color: #FF7171;
+	text-decoration: none
+}
+
+.box01 {
+	color: #666666;
+	font-size: 12px
+}
+
+;
+.box01 A:link {
+	color: #666666;
+	text-decoration: none
+}
+
+.box01 A:visited {
+	color: #666666;
+	text-decoration: none
+}
+
+.box01 A:hover {
+	color: #990000;
+	text-decoration: underline
+}
+
+.box02 {
+	color: #999999;
+	font-size: 12px
+}
+
+;
+.box02 A:link {
+	color: #999999;
+	text-decoration: none
+}
+
+.box02 A:visited {
+	color: #999999;
+	text-decoration: none
+}
+
+.box02 A:hover {
+	color: #990000;
+	text-decoration: underline
+}
+
+.box03 {
+	color: #000000;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+;
+.box04 {
+	color: #990000;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+;
+.imagebgRightBottom {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+.menuLink A:link {
+	color: #666666;
+	text-decoration: none
+}
+
+.menuLink A:visited {
+	color: #666666;
+	text-decoration: none
+}
+
+.menuLink A:hover {
+	color: #990000;
+	text-decoration: underline
+}
+
+.bgNoRepeat {
+	background-repeat: no-repeat;
+}
+
+.bgRepeatH {
+	background-repeat: repeat-x;
+}
+
+.bgRepeatV {
+	background-repeat: repeat-y;
+}
+
+.whiteFont {
+	font-family: "Microsoft JhengHei";
+	color: #FFFFFF;
+}
+
+.whiteFont A:link {
+	color: #FFFFFF;
+	text-decoration: none
+}
+
+.whiteFont A:visited {
+	color: #FFFFFF;
+	text-decoration: none
+}
+
+.whiteFont A:hover {
+	color: #FFFFFF;
+	text-decoration: underline
+}
+
+.BKFont {
+	color: #666666;
+	line-height: 1.5;
+}
+
+.BKFont  A:link {
+	color: #666666;
+	text-decoration: none
+}
+
+.BKFont  A:visited {
+	color: #666666;
+	text-decoration: none
+}
+
+.BKFont  A:hover {
+	color: #999999;
+	text-decoration: underline
+}
+
+.pinkFont01 {
+	color: #E39900;
+}
+
+.BKFont2 {
+	color: #999999;
+	line-height: 1.5;
+}
+
+.BKFont2  A:link {
+	color: #999999;
+	text-decoration: none
+}
+
+.BKFont2  A:visited {
+	color: #999999;
+	text-decoration: none
+}
+
+.BKFont2  A:hover {
+	color: #666666;
+	text-decoration: underline
+}
+
+}
+.bgrightup {
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
+.menuLink2 {
+	font-family: "Microsoft JhengHei";
+	font-size: 12px;
+	color: # #B77B00;
+}
+
+.menuLink2 A:link {
+	color: #B77B00;
+	text-decoration: none
+}
+
+.menuLink2 A:visited {
+	color: #B77B00;
+	text-decoration: none
+}
+
+.menuLink2 A:hover {
+	color: #999999;
+	text-decoration: underline
+}
+
+.bgrightB {
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+
+.word001 {
+	color: #990000;
+}
+
+.word001 A:link {
+	color: #990000;
+	text-decoration: none
+}
+
+.word001 A:visited {
+	color: #990000;
+	text-decoration: none
+}
+
+.word001 A:hover {
+	color: #999999;
+	text-decoration: underline
+}
+
+.word002 {
+	color: #604100;
+}
+
+.word003 {
+	color: #666666;
+	padding: 4px 2px;
+	margin: 0px;
+	line-height: 1.4;
+}
+
+.word003 A:link {
+	color: #666666;
+	text-decoration: none
+}
+
+.word003 A:visited {
+	color: #666666;
+	text-decoration: none
+}
+
+.word003 A:hover {
+	color: #999999;
+	text-decoration: underline
+}
+
+.tdwithborder {
+	border: 1px solid #996700;
+}
+
+.formBorderRed {
+	border: 1px solid #990000;
+}
+
+.bgrightdown {
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+.title {
+	font-size: 14px;
+	color: #FF0000;
+}
+
+.title_black {
+	font-family: "Microsoft JhengHei";
+	font-size: 24px;
+	font-style: normal;
+	text-transform: none;
+	font-variant: normal;
+	font-weight: 300;
+	color: #333333;
+}
+
+.body {
+	overflow-x: hidden;
+}
