@@ -60,3 +60,26 @@ sudo mysql -u root
 SELECT user, host, plugin FROM mysql.user;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
 ```
+
+## 使用 wordpress
+
+* 下載安裝
+```console
+cd /tmp
+wget https://wordpress.org/latest.tar.gz
+tar -xvzf latest.tar.gz
+sudo mv wordpress /var/www/wordpress
+sudo chown -R www-data:www-data /var/www/wordpress
+sudo chmod -R 755 /var/www/wordpress
+```
+
+* 設定 wordpress
+```console
+cd /var/www/wordpress
+cp wp-config-sample.php wp-config.php
+nano wp-config.php
+  define('DB_NAME', 'wordpress');
+  define('DB_USER', 'wpuser');
+  define('DB_PASSWORD', '強密碼');
+  define('DB_HOST', 'localhost');
+```
