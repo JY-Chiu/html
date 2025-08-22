@@ -1,161 +1,458 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
+
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>信陽電腦科技有限公司 | JY</title>
-    <!--=============== LOGO ===============-->
-    <link rel="icon" href="img/favicon-32x32.png" type="image/png">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <!--=============== CSS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/scrollTopBtn.css">
-    <!-- <link rel="stylesheet" href="css/scrollTopBtn.css"> -->
+	<title>信陽電腦科技有限公司</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- custom CSS -->
+	<link href="css/style_home.css" rel="stylesheet">
+	<!--<link href="css/custom.css" rel="stylesheet">-->
+	<link href="css/parallax.css" rel="stylesheet">
+	<link href="css/parallaxie.css" rel="stylesheet">
+	
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件
+	<script src="http://static.theultrasoft.com/jquery/jquery-1.12.2.min.js"></script>
+	 -->
+	<script src="js/jquery-1.12.2.min.js"></script>
+	
+	<!-- Bootstrap core JS
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  -->
+	<script src="js/bootstrap.min.js"></script>
+	
+	<!-- custom JS -->
+	<script src="js/parallaxie.js"></script>
+	
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+  
+    <script type="application/javascript">
+      function getIP(json) {
+        document.write(json.ip);
+      }
+    </script>
 </head>
+
 <body>
-    <!--=============== HEADER ===============-->
-    <header class="header">
-        <nav class="nav nav_container">
-            <div class="nav_data">
-                <a href="index.html" class="nav_logo">
-                    <img src="img/stc conpany.PNG" alt="nav_logo" class="logo_png">
+
+<!-- navbar -->
+<!-- 
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">STC</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+		    <li class="dropdown">
+		      <a class="dropdown-toggle" data-toggle="dropdown" href="#">服務項目 <span class="caret"></span></a>
+		      <ul class="dropdown-menu">
+		        <li><a href="#service-system">系統整合服務</a></li>
+		        <li><a href="#service-it">資訊駐點服務</a></li>
+		        <li><a href="#service-sales">產品經銷服務</a></li>
+		      </ul>
+		    </li>
+            <li><a href="#about">關於信陽</a></li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://www.stc.com.tw/client_login.jsp"><span class="glyphicon glyphicon-wrench"></span>報修服務</a></li>
+            <li><a href="http://www.stc.com.tw/staff_login.jsp"><span class="glyphicon glyphicon-log-in"></span>員工登入</a></li>
+        </ul>
+    </div>
+    </div>
+</nav> -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid"> 
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#example-navbar-collapse">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">信陽電腦科技有限公司</a>
+    </div>
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	服務項目 <b class="caret"></b>
                 </a>
-                <div class="nav_toggle" id="nav-toggle">
-                    <i class="ri-menu-line nav_burger"></i>
-                    <i class="ri-close-line nav_close"></i>
-                </div>
-            </div>
-            <!--=============== NAV MENU ===============-->
-            <div class="nav_menu" id="nav-menu">
-                <ul class="nav_list">
-                    <li><a href="#" class="nav_link"> 關於信陽 <i class="ri-sun-line"></i></a></li>
-                    <!--=============== DROPDOWN 1 ===============-->
-                    <li class="dropdown_item">
-                        <div class="nav_link"> 專業服務 <i class="ri-arrow-down-s-line dropdown_arrow"></i></div>
-                        <ul class="dropdown_menu">
-                            <li><a href="#" class="dropdown_link"> 資訊駐點服務 </a></li>
-                            <li><a href="#" class="dropdown_link"> 系統維護與技術支援 </a></li>
-                            <li><a href="#" class="dropdown_link"> 資安檢測與教育訓練 </a></li>
-                            <li><a href="#" class="dropdown_link"> 經營項目&共同供應契約 </a></li>
-                            <li><a href="#" class="dropdown_link"> 阿俊ㄟ專業服務 | 初音未來 </a></li>
-                            <!--=============== DROPDOWN SUBMENU 1 ===============-->
-                            <!-- <li class="dropdown_subitem">
-                                <div class="dropdown_link"> 其他服務 <i class="ri-add-line dropdown_add"></i></div>
-                                <ul class="dropdown_submenu">
-                                    <li><a href="" class="dropdown_sublink"> 技術支援與顧問諮詢 </a></li>
-                                    <li><a href="" class="dropdown_sublink"> 公文管理系統維護輔導 </a></li>
-                                </ul>
-                            </li> -->
-                        </ul>
-                    </li>
-                    <!--=============== DROPDOWN 2 ===============-->
-                    <li class="dropdown_item">
-                        <div class="nav_link">解決方案 <i class="ri-arrow-down-s-line dropdown_arrow"></i></div>
-                        <ul class="dropdown_menu">
-                            <li><a href="#" class="dropdown_link"> 資訊系統整合 </a></li>
-                            <li><a href="#" class="dropdown_link"> 網路與設備建置 </a></li>
-                            <li><a href="#" class="dropdown_link"> 資訊機房解決方案 </a></li>
-                            <li><a href="#" class="dropdown_link"> 伺服器與備援 </a></li>
-                            <li><a href="#" class="dropdown_link"> 資安防護整合 </a></li>
-                        </ul>
-                    </li>
-                    <li><a href="https://www.stc.com.tw/client_login.jsp" class="nav_link"> 報修服務 <i class="ri-tools-line"></i></a></li>
-                    <li><a href="https://www.stc.com.tw/staff_login.jsp" class="nav_link"> 員工登入 <i class="ri-user-line"></i></a></li>
+                <ul class="dropdown-menu">
+			        <li><a href="#service-system">系統整合服務</a></li>
+			        <li><a href="#service-it">資訊駐點服務</a></li>
+			        <li><a href="#service-sales">產品經銷服務</a></li>
                 </ul>
-            </div>
-        </nav>
-    </header>
-    <!--=============== MAIN ===============-->
-    <main class="main main-container">
-        <section id="home" class="section home-section">
-            <div class="home-bg">
-                <div class="home-content">
-                    <h1 class="home-title">信陽電腦科技有限公司</h1>
-                    <p class="home-description">我們提供資訊系統整合、網路建置與資安服務，致力於為客戶創造最安全與高效的 IT 環境。</p>
-                </div>
-            </div>
-        </section>
-        <section id="about" class="section about-section">
-            <h2>關於信陽</h2>
-        </section>
-        <section id="services" class="section services-section">
-            <h2>專業服務</h2>
-            <ul>
-                <li>資訊駐點服務</li>
-                <li>系統維護與技術支援</li>
-                <li>資安檢測與教育訓練</li>
-                <li>經營項目&共同供應契約</li>
-                <li>阿俊超專業服務 </li>
-            </ul>
-        </section>
-        <section id="solutions" class="section solutions-section">
-            <h2>解決方案</h2>
-            <div class="solution-block">
-                <h3>中小企業資安防護</h3>
-                <p>量身打造符合預算與規模的資安建置方案。</p>
-            </div><div class="solution-block">
-                <h3>政府機關 IT 建置</h3>
-                <p>符合政府資安規範，提供完善的系統規劃與建置。</p>
-            </div><div class="solution-block">
-                <h3>跨地區分點整合</h3>
-                <p>協助企業整合各地據點資源，打造高效 IT 管理平台。</p>
-            </div>
-        </section>
-    </main>
-    <!--=============== FOOTER ===============-->
-    <footer>
-        <div class="footer footer_container">
-            <div class="footer_content">
-                <h3>信陽電腦科技有限公司</h3>
-                <p>信陽電腦科技有限公司成立於1995年，專注於資訊系統整合、網路建置與資安服務。位於桃園市政府旁，交通便利，服務對象涵蓋中小企業與公家機關。公司秉持專業、效率、誠信的理念，提供穩定可靠的技術支援，致力打造安全、智慧的資訊環境，深受客戶信賴。</p>
-            </div>
-            <div class="footer_content">
-                <h3>聯絡我們</h3>
-                <ul class="list contact-list">
-                    <li><i class="ri-map-2-line"></i>桃園市桃園區縣府路270之1號2樓</li>
-                    <li><i class="ri-phone-line"></i>(03)336-1251</li>
-                    <li><i class="ri-printer-line"></i>(03)336-1259</li>
-                    <li><i class="ri-mail-line"></i>stc@stc.com.tw</li>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	促銷活動 <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+			        <li><a href="promote.html">立即提升企業競爭力的Office 2019</a></li>
+			        <li><a href="promote2.html">Office家用及中小企業版</a></li>
                 </ul>
-            </div>
-            <div class="footer_content">
-                <h3>相關連結</h3>
-                <ul class="list">
-                    <!-- <li><a href="#">首頁</a></li> -->
-                    <li><a href="#">關於信陽</a></li>
-                    <li><a href="#">專業服務</a></li>
-                    <li><a href="#">解決方案</a></li>
-                    <li><a href="https://www.stc.com.tw/client_login.jsp">報修服務</a></li>
-                    <li><a href="https://www.104.com.tw/company/afg0pko?jobsource=google" class="footer-link">加入我們</a></li>
-                </ul>
-            </div>
-            <div class="bottom-bar">
-                <p style="text-align: center;">你的 IP 位址是：<span id="ip-display">載入中...</span></p>
-                <script>
-                    fetch('https://api.ipify.org?format=json')
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('ip-display').textContent = data.ip;
-                    })
-                    .catch(error => {
-                        console.error('取得 IP 發生錯誤：', error);
-                        document.getElementById('ip-display').textContent = '無法取得 IP';
-                    });
-                </script>
-                <p>Copyright &copy; 2025 STC Corp. All rights reseved.</p>
-            </div>
+            </li>
+            <li><a href="#about"><!-- <span class="glyphicon glyphicon-info-sign"></span> -->關於信陽</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="client_login.html"><span class="glyphicon glyphicon-wrench"></span>報修服務</a></li>
+            <li><a href="staff_login.html"><span class="glyphicon glyphicon-log-in"></span>員工登入</a></li>
+        </ul>
+    </div>
+    </div>
+</nav>
+<!-- carousel -->
+<div id="myCarousel" class="carousel slide">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>   
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="image/carousel-01.jpg" alt="First slide">
+            <!-- <div class="carousel-caption">标题 1</div> -->
         </div>
-    </footer>
-    <!--=============== scrollTopBtn ===============-->
-    <button id="scrollTopBtn" title="回到上方">
-        <i class="ri-skip-up-line"></i>
-    </button>
-    <!--=============== JS ===============-->
-    <script src="js/header.js"></script>
-    <script src="js/scrollTopBtn.js"></script>
+        <div class="item">
+            <img src="image/carousel-02.jpg" alt="Second slide">
+            <!-- <div class="carousel-caption">标题 2</div> -->
+        </div>
+        <div class="item">
+            <img src="image/carousel-03.jpg" alt="Third slide">
+            <!-- <div class="carousel-caption">标题 3</div> -->
+        </div>
+        <div class="item">
+            <img src="image/carousel-surface.png" alt="Fourth slide">
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- container-fluid -->
+
+<div class="container-fluid" id="service-system">
+	<div class="row">
+		<h1>系統整合服務</h1>
+		<div class="col-md-4">
+			<div class="rounded-circle"> <img src="image/blog-01.jpg" alt="" class="img-fluid"> </div>
+			<div class="panel panel-success">
+			    <div class="panel-heading">
+			        <h3 class="panel-title">規劃建置</h3>
+			    </div>
+			    <div class="panel-body">
+				<p>企業資訊規劃與整合</p>
+				<p>網路系統規劃與設備建置</p>
+				<p>資訊機房規劃與建置</p>
+				<p>機房環控規劃與建置</p>
+				<p>伺服器虛擬化</p>
+				<p>持續性備援解決方案</p>
+				<p>網路週邊設備線材及施工</p>
+			    </div>
+			</div>
+        	<!-- 
+			<h2 class="text-primary">規劃建置</h2>
+			<p>企業資訊規劃與整合</p>
+			<p>網路系統規劃與設備建置</p>
+			<p>資訊機房規劃與建置</p>
+			<p>機房環控規劃與建置</p>
+			<p>伺服器虛擬化</p>
+			<p>持續性備援解決方案</p>
+			<p>網路週邊設備線材及施工</p> -->
+		</div>
+		<div class="col-md-4">
+        	<div class="rounded-circle"> <img src="image/blog-02.jpg" alt="" class="img-fluid"> </div>
+			<div class="panel panel-info">
+			    <div class="panel-heading">
+			        <h3 class="panel-title">維運服務</h3>
+			    </div>
+			    <div class="panel-body">
+			    	<p>駐點維護</p>
+					<p>資訊系統維護</p>
+					<p>資安檢測/弱點掃描</p>
+					<p>社交工程演練</p>
+					<p>資安防護</p>
+			    </div>
+			</div>
+			<!-- 
+			<h2 class="text-primary">維運服務</h2>
+			<p>駐點維護</p>
+			<p>資訊系統維護</p>
+			<p>資安檢測/弱點掃描</p>
+			<p>社交工程演練</p>
+			<p>資安防護</p> -->
+		</div>
+		<div class="col-md-4">
+        	<div class="rounded-circle"> <img src="image/blog-04.jpg" alt="" class="img-fluid"> </div>
+			<div class="panel panel-danger">
+			    <div class="panel-heading">
+			        <h3 class="panel-title">其它服務</h3>
+			    </div>
+			    <div class="panel-body">
+			    	<p>共同供應契約</p>
+					<p>公文管理系統維護輔導</p>
+					<p>技術支援與咨詢顧問</p>
+					<p>資訊安全教育訓練</p>
+			    </div>
+			</div>
+			<!-- 
+			<h2 class="text-primary">其它服務</h2>
+			<p>公文管理系統建置維護輔導</p>
+			<p>技術支援與咨詢顧問</p>
+			<p>資訊安全教育訓練</p>
+			<p>公司工廠網路建置</p> -->
+			
+		</div>
+	</div>
+</div>
+
+<!-- section -->
+<section class="about-sec2 parallax-section" id="service">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3></h3>
+      </div>
+      <div class="col-md-8">
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- container-fluid -->
+
+<div class="container-fluid" id="service-it">
+	<div class="row">
+		<h1>資訊駐點服務</h1>
+		<div class="col-md-12">
+			<h2 class="text-primary">專業認證工程師</h2>
+			<p>我們有Microsoft的MCSE / MCP、Cisco的CCIE / CCNP / CCNA、TREND防毒的 TCSE、軟體開發的SCJP、專案管理的PMP…等專業認證，能根據顧客的需求，提供 網路規劃及系統整合建議，使顧客能得到專業服務的技術保證。</p>
+			<img src="image/cert/logo_cert_mcse.png" class="img-logo">
+			<img src="image/cert/logo_cert_mcsa.png" class="img-logo">
+			<img src="image/cert/logo_cert_mcp_2.png" class="img-logo">			
+			<img src="image/cert/logo_cert_ccna_1.png" class="img-logo">
+			<img src="image/cert/logo_cert_ccnp_1.png" class="img-logo">
+			<img src="image/cert/logo_cert_tcse.jpg" class="img-logo">
+			<img src="image/cert/logo_cert_scjp.png" class="img-logo">
+			<img src="image/cert/logo_cert_pmp.jpg" class="img-logo">
+			
+			<h2 class="text-primary">服務項目</h2>
+			<div class="row">
+				<div class="col-md-6">
+					<h3>MIS人員委外</h3>
+					<img alt="Bootstrap Image Preview" src="image/service-01.jpg" class="rounded-circle" />
+					<h3>網路管理委外</h3>
+					<img alt="Bootstrap Image Preview" src="image/stc/idc_3_1.jpg" class="rounded-circle" />
+				</div>
+				<div class="col-md-6">
+					<h3>系統管理委外</h3>
+					<img alt="Bootstrap Image Preview" src="image/stc/idc_kvm_1.jpg" class="rounded-circle" />
+					<h3>資安健診</h3>
+					<img alt="Bootstrap Image Preview" src="image/service-04.jpg" class="rounded-circle" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- section -->
+<section class="about-sec parallax-section" id="service">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3></h3>
+      </div>
+      <div class="col-md-8">
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- list -->
+
+<div class="container-fluid" id="service-sales">
+	<div class="row">
+		<h1>資訊產品經銷服務</h1>
+			<div class="panel panel-primary">
+			    <div class="panel-heading">
+			        <h3 class="panel-title">原廠授權經銷商及銷售產品</h3>
+			    </div>
+			    <div class="panel-body">
+					<img src="image/logo/logo_acer.png" class="img-thumbnail">
+					<img src="image/logo/logo_asus.jpg" class="img-thumbnail">
+					<img src="image/logo/logo_checkpoint.jpg" class="img-thumbnail">
+					<img src="image/logo/logo_cisco.gif" class="img-thumbnail">
+					<img src="image/logo/logo_dell.png" class="img-thumbnail">
+					<img src="image/logo/logo_dlink.jpg" class="img-thumbnail">
+					<img src="image/logo/logo_fortinet.jpg" class="img-thumbnail">
+					<img src="image/logo/logo_hp.png" class="img-thumbnail">
+					<img src="image/logo/logo_ibm.png" class="img-thumbnail">
+					<img src="image/logo/logo_intel.png" class="img-thumbnail">
+					<img src="image/logo/logo_lenovo.png" class="img-thumbnail">
+					<img src="image/logo/logo_microsoft.jpg" class="img-thumbnail">
+					<img src="image/logo/logo_Synnex.jpg" class="img-thumbnail">
+					<img src="image/logo/logo_trend.png" class="img-thumbnail">
+					<img src="image/logo/logo_qnap.png" class="img-thumbnail">
+					<img src="image/logo/logo_mcafee.png" class="img-thumbnail">
+					<img src="image/logo/logo_synology.png" class="img-thumbnail">
+					<img src="image/logo/logo_cyberlink.png" class="img-thumbnail">
+					<img src="image/logo/logo_acronis.png" class="img-thumbnail">
+					<img src="image/logo/logo_vmware.png" class="img-thumbnail">
+			    </div>
+			</div>
+			<div class="panel panel-primary">
+			    <div class="panel-heading">
+			        <h3 class="panel-title">經營項目&共同供應契約</h3>
+			    </div>
+			    <div class="panel-body">
+					<div class="col-md-4">
+						<ul class="text-left">
+							<li class="list-item">防火牆/UTM</li>
+							<li class="list-item">高效能網路設備</li>
+							<li class="list-item">各型伺服器主機</li>
+							<li class="list-item">網路存儲設備</li>
+							<li class="list-item">備份備援系統</li>
+							<li class="list-item">網路管理系統</li>
+							<li class="list-item">投影機</li>
+							<li class="list-item">電腦週邊設備</li>
+							<li class="list-item">印表機/事務機及耗材</li>
+							<li class="list-item">機房環控/監視器/空調系統</li>
+						</ul>
+			   		</div>
+					<div class="col-md-4">
+						<ul class="text-left">
+							<li class="list-item">伺服器</li>
+							<li class="list-item">個人電腦之主機</li>
+							<li class="list-item">個人電腦之顯示器</li>
+							<li class="list-item">筆記型電腦</li>
+							<li class="list-item">精簡型電腦</li>
+							<li class="list-item">平板電腦</li>
+							<li class="list-item">彩色數位相機及數位攝影機</li>
+							<li class="list-item">儲存系統設備</li>
+							<li class="list-item">儲存媒體</li>
+							<li class="list-item">顯示卡</li>
+						</ul>
+			   		</div>
+					<div class="col-md-4">
+						<ul class="text-left">
+							<li class="list-item">微軟軟體</li>
+							<li class="list-item">防毒軟體</li>
+							<li class="list-item">虛擬軟體</li>
+							<li class="list-item">備份工具</li>
+							<li class="list-item">資料庫軟體</li>
+							<li class="list-item">繪圖軟體</li>
+							<li class="list-item">資安_網路安全</li>
+							<li class="list-item">資安_端點安全</li>
+							<li class="list-item">資安_檔案安全管理</li>
+							<li class="list-item">資訊安全管理工具</li>
+							<li class="list-item">其他應用軟體</li>
+						</ul>
+			   		</div>
+			    </div>
+			</div>
+			<!-- 
+		<div class="col-md-12">
+			<ul class="text-left">
+				<li class="list-item">
+					共同供應契約
+				</li>
+				<li class="list-item">
+					高效能網路設備
+				</li>
+				<li class="list-item">
+					各型伺服器主機
+				</li>
+				<li class="list-item">
+					網路存儲設備
+				</li>
+				<li class="list-item">
+					電腦軟體及授權
+				</li>
+				<li class="list-item">
+					投影機
+				</li>
+				<li class="list-item">
+					電腦週邊設備
+				</li>
+				<li class="list-item">
+					印表機及耗材
+				</li>
+			</ul>
+		</div> -->
+	</div>
+</div>
+
+<!-- <div id="main_bg" class="parallaxie">
+<div id="shoe-01" class="parallaxie" data-parallaxie='{"size": "auto", "pos_x":"20%", "speed":-0.3, "offset":100}'></div>
+<div id="shoe-02" class="parallaxie" data-parallaxie='{"size": "auto", "pos_x":"70%", "speed":0.4, "offset":0}'></div>
+</div>  -->
+
+<footer class="footer" id="about">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+      <div class="footerContent">
+        <!-- <img src="image/logo.png" alt="footer-logo"> -->
+        <h5>信陽電腦科技有限公司</h5>
+        <p>本公司位於桃園市政府旁的縣府路上，交通便利，已有30年歷史，公司穩定成長。目前為 Lenovo 菁英經 銷商，EPSON 企業經銷商，INTEL黃金級經銷商、Microsoft 授權經銷商，聯強國際 A 級經銷商 </p>
+        <p>專業銷售 Dell、HP、Lenovo 等網路伺服器，代理經銷聯強、捷元、群環、展碁、精技等個人電腦及相關週邊，並提供系統整合、規劃服務、網路建置、機房維護等相關服務項目</p>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+      <div class="footerContent">
+        <h5>使命與願景</h5>
+        <ul class="list-unstyled">
+          <li></i>以專業技術，提供客戶安全、便捷及智能化的資訊環境</li>
+          <li></i>成為值得信賴的資通訊諮詢與專業技術服務領導廠商</li>
+        </ul>
+        <h5>聯絡我們</h5>
+        <ul class="list-unstyled">
+          <li><i class="fa fa-home" aria-hidden="true"></i>桃園市桃園區縣府路270之1號2樓</li>
+          <li><i class="fa fa-phone" aria-hidden="true"></i>(03)-3361251</li>
+          <li><i class="fa fa-fax" aria-hidden="true"></i>(03)-3361259</li>
+          <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="/cdn-cgi/l/email-protection#cebdbaad8ebdbaade0ada1a3e0bab9"><span class="__cf_email__" data-cfemail="d2a1a6b192a1a6b1fcb1bdbffca6a5">[email&#160;protected]</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+您的IP位址：<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+</div>
+<div class="container">
+Copyright © 1987-2018 STC Corp. All rights reserved.
+</div>
+</footer>
+
+<script>
+        //$('.heading').height( $(window).height() );
+        $('.parallaxie').parallaxie();
+        $('.carousel').carousel();
+
+</script>
+
 </body>
 </html>
