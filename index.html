@@ -1,277 +1,451 @@
-<!doctype html>
-<html lang="zh-Hant" class="h-full">
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>你的名字｜個人履歷</title>
-  <meta name="description" content="你的名字的個人履歷：前端工程師／資安工程師，專長 React、Node.js、雲端部署與弱點掃描。" />
-  <meta property="og:title" content="你的名字｜個人履歷" />
-  <meta property="og:description" content="前端工程師／資安工程師，專長 React、Node.js、雲端部署與弱點掃描。" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#111827" />
-
-  <!-- 字體 & Tailwind -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Noto Sans TC", "Arial", "sans-serif"] },
-          colors: { brand: { 500: "#6366f1", 600: "#5458e5" } }
-        }
-      },
-      darkMode: 'class'
-    }
-  </script>
-  <style>
-    @media print {
-      .no-print { display: none !important; }
-      .avoid-break { break-inside: avoid; }
-      body { color: #111827; }
-    }
-  </style>
-  <script>
-    // --- 暗色模式偏好 ---
-    const themeKey = 'resume-theme';
-    const saved = localStorage.getItem(themeKey);
-    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
-    function toggleTheme(){
-      const el = document.documentElement;
-      const isDark = el.classList.toggle('dark');
-      localStorage.setItem(themeKey, isDark ? 'dark' : 'light');
-    }
-    function downloadPDF(){
-      window.print();
-    }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "你的名字",
-    "jobTitle": "前端工程師 / 資安工程師",
-    "email": "mailto:you@example.com",
-    "telephone": "+8869xxxxxxxx",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "臺北",
-      "addressCountry": "TW"
-    },
-    "url": "https://your-portfolio.example.com",
-    "sameAs": [
-      "https://github.com/yourhandle",
-      "https://www.linkedin.com/in/yourhandle/"
-    ]
-  }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資安工程師 - 個人履歷</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .skill-bar { transition: width 1s ease-in-out; }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
 </head>
-<body class="h-full bg-slate-50 text-slate-800 dark:bg-neutral-950 dark:text-neutral-100">
-
-  <!-- 頂部導覽 -->
-  <header class="no-print sticky top-0 z-20 backdrop-blur border-b border-black/5 dark:border-white/10 supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-black/30">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-600 text-white flex items-center justify-center font-bold shadow">
-          <span id="initials">YN</span>
+<body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="w-32 h-32 mx-auto mb-6 bg-white rounded-full overflow-hidden shadow-lg border-4 border-white">
+                <svg viewBox="0 0 200 200" class="w-full h-full">
+                    <!-- Background -->
+                    <rect width="200" height="200" fill="#f0f4f8"/>
+                    
+                    <!-- Face -->
+                    <circle cx="100" cy="85" r="35" fill="#fdbcb4"/>
+                    
+                    <!-- Hair -->
+                    <path d="M65 60 Q100 40 135 60 Q140 50 135 45 Q100 25 65 45 Q60 50 65 60" fill="#2d3748"/>
+                    
+                    <!-- Eyes -->
+                    <circle cx="88" cy="80" r="3" fill="#2d3748"/>
+                    <circle cx="112" cy="80" r="3" fill="#2d3748"/>
+                    
+                    <!-- Nose -->
+                    <circle cx="100" cy="90" r="1.5" fill="#f687b3"/>
+                    
+                    <!-- Mouth -->
+                    <path d="M95 100 Q100 105 105 100" stroke="#2d3748" stroke-width="2" fill="none"/>
+                    
+                    <!-- Shirt -->
+                    <rect x="70" y="120" width="60" height="80" fill="#4299e1"/>
+                    
+                    <!-- Tie -->
+                    <polygon points="95,120 105,120 108,140 102,160 98,160 92,140" fill="#2b6cb0"/>
+                    
+                    <!-- Collar -->
+                    <polygon points="70,120 85,135 100,120 115,135 130,120 130,140 70,140" fill="white"/>
+                    
+                    <!-- Glasses (optional professional touch) -->
+                    <circle cx="88" cy="80" r="12" fill="none" stroke="#2d3748" stroke-width="2"/>
+                    <circle cx="112" cy="80" r="12" fill="none" stroke="#2d3748" stroke-width="2"/>
+                    <line x1="100" y1="80" x2="100" y2="80" stroke="#2d3748" stroke-width="2"/>
+                </svg>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">張資安</h1>
+            <p class="text-xl md:text-2xl mb-6 opacity-90">資訊安全工程師</p>
+            <p class="text-lg max-w-2xl mx-auto opacity-80">專精於網路安全、滲透測試與資安架構設計，致力於保護企業數位資產安全</p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <button onclick="scrollToSection('contact')" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
+                    <i class="fas fa-envelope mr-2"></i>聯絡我
+                </button>
+                <button onclick="downloadResume()" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition duration-300">
+                    <i class="fas fa-download mr-2"></i>下載履歷
+                </button>
+            </div>
         </div>
-        <div>
-          <div class="font-semibold leading-tight">你的名字 (Your Name)</div>
-          <div class="text-xs opacity-70">前端工程師 / 資安工程師</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="#about" onclick="scrollToSection('about')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">關於我</a>
+                <a href="#skills" onclick="scrollToSection('skills')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">技能</a>
+                <a href="#experience" onclick="scrollToSection('experience')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">經驗</a>
+                <a href="#certifications" onclick="scrollToSection('certifications')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">證照</a>
+                <a href="#contact" onclick="scrollToSection('contact')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">聯絡</a>
+            </div>
         </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <button onclick="downloadPDF()" class="px-3 py-2 text-sm rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-black">下載 / 列印 PDF</button>
-        <button onclick="toggleTheme()" class="px-3 py-2 text-sm rounded-2xl border border-black/10 dark:border-white/20">亮/暗</button>
-      </div>
-    </div>
-  </header>
+    </nav>
 
-  <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-4 pt-10 pb-6">
-    <div class="grid md:grid-cols-[1fr,280px] gap-6">
-      <div class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6">
-        <h1 class="text-2xl md:text-3xl font-bold tracking-tight">前端工程師 / 資安工程師</h1>
-        <p class="mt-3 leading-7 opacity-90">
-          簡短自我介紹：3–4 句話說明你的專長、成就與求職目標。例：擅長 React、Node.js 與雲端部署，具備弱點掃描與滲透測試經驗，熱衷打造高可用與安全的企業級服務。
-        </p>
-        <div class="mt-4 flex flex-wrap items-center gap-4 text-sm opacity-90">
-          <span class="inline-flex items-center gap-1">📍 臺北, 臺灣</span>
-          <a class="inline-flex items-center gap-1 hover:underline" href="mailto:you@example.com">✉️ you@example.com</a>
-          <a class="inline-flex items-center gap-1 hover:underline" href="tel:+8869xxxxxxxx">📞 +886 9xx xxx xxx</a>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">關於我</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">專業背景</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            擁有5年以上資訊安全領域經驗，專精於企業網路安全架構設計、滲透測試、資安事件應變處理。
+                            曾協助多家企業建立完整的資安防護體系，並成功防範多起重大資安威脅。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-indigo-600 mr-3"></i>
+                                <span class="text-gray-700">台北市，台灣</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-graduation-cap text-indigo-600 mr-3"></i>
+                                <span class="text-gray-700">資訊工程碩士</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-calendar-alt text-indigo-600 mr-3"></i>
+                                <span class="text-gray-700">5+ 年工作經驗</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">核心價值</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span class="text-gray-700">持續學習最新資安技術與威脅情報</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span class="text-gray-700">以預防為主的主動式資安防護理念</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span class="text-gray-700">重視團隊合作與知識分享</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <span class="text-gray-700">追求技術卓越與創新解決方案</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mt-5 flex flex-wrap gap-3">
-          <a href="https://github.com/yourhandle" target="_blank" class="px-3 py-2 text-sm rounded-2xl border border-black/10 dark:border-white/20">GitHub</a>
-          <a href="https://www.linkedin.com/in/yourhandle/" target="_blank" class="px-3 py-2 text-sm rounded-2xl border border-black/10 dark:border-white/20">LinkedIn</a>
-          <a href="https://your-portfolio.example.com" target="_blank" class="px-3 py-2 text-sm rounded-2xl border border-black/10 dark:border-white/20">個人網站</a>
-        </div>
-      </div>
-
-      <div class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6">
-        <h2 class="font-semibold mb-3">專長速覽</h2>
-        <ul class="space-y-3">
-          <li>
-            <div class="flex justify-between text-sm mb-1"><span>React / Next.js</span><span class="opacity-70">90%</span></div>
-            <div class="w-full h-2 bg-black/5 dark:bg-white/10 rounded-full overflow-hidden"><div class="h-full w-[90%] bg-gradient-to-r from-brand-500 to-brand-600"></div></div>
-          </li>
-          <li>
-            <div class="flex justify-between text-sm mb-1"><span>TypeScript</span><span class="opacity-70">85%</span></div>
-            <div class="w-full h-2 bg-black/5 dark:bg-white/10 rounded-full overflow-hidden"><div class="h-full w-[85%] bg-gradient-to-r from-brand-500 to-brand-600"></div></div>
-          </li>
-          <li>
-            <div class="flex justify-between text-sm mb-1"><span>資安：Nessus / BurpSuite</span><span class="opacity-70">75%</span></div>
-            <div class="w-full h-2 bg-black/5 dark:bg-white/10 rounded-full overflow-hidden"><div class="h-full w-[75%] bg-gradient-to-r from-brand-500 to-brand-600"></div></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main -->
-  <main class="max-w-5xl mx-auto px-4 pb-16 grid lg:grid-cols-[1.3fr,0.9fr] gap-6">
-    <!-- 經歷 -->
-    <section>
-      <h3 class="text-xl font-semibold mb-3">工作經歷</h3>
-      <div class="space-y-4">
-        <article class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6 avoid-break">
-          <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <div class="text-lg font-semibold">前端工程師 · Acme Corp</div>
-            <div class="text-sm opacity-70">2022/07 – 至今</div>
-          </div>
-          <p class="mt-2 opacity-90">負責企業內部儀表板與元件庫，導入 CI/CD 與自動化測試，前端效能最佳化 (LCP &lt; 2s)。</p>
-          <ul class="mt-3 list-disc pl-5 space-y-1">
-            <li>以 React + Tailwind 打造模組化 UI，將共用元件覆用率提升 40%</li>
-            <li>設計型別安全資料模型，降低 30% 介面錯誤</li>
-            <li>建置 GitHub Actions，自動化測試與部署到 Vercel／K8s</li>
-          </ul>
-        </article>
-
-        <article class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6 avoid-break">
-          <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <div class="text-lg font-semibold">資安工程師 · Cyber Shield</div>
-            <div class="text-sm opacity-70">2020/08 – 2022/06</div>
-          </div>
-          <p class="mt-2 opacity-90">規劃弱點掃描、社交工程演練與滲透測試流程，提出修補建議。</p>
-          <ul class="mt-3 list-disc pl-5 space-y-1">
-            <li>每季掃描 200+ 節點並產出風險報告（Nessus / OpenVAS）</li>
-            <li>導入 2FA 與最小權限原則，降低高風險項目 60%</li>
-            <li>協助應變，縮短平均修復時間 (MTTR) 30%</li>
-          </ul>
-        </article>
-      </div>
-
-      <h3 class="text-xl font-semibold mt-8 mb-3">專案作品</h3>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <article class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6">
-          <div class="font-semibold text-base">出缺勤管理系統</div>
-          <p class="mt-2 text-sm opacity-90">Next.js + MySQL + AD 整合，支援 SSO 與角色權限控管，供 300+ 內部人員使用。</p>
-          <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">Next.js</span>
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">MySQL</span>
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">AD</span>
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">SSO</span>
-          </div>
-          <a class="inline-block mt-4 text-sm underline opacity-90" href="#" target="_blank">查看專案</a>
-        </article>
-
-        <article class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6">
-          <div class="font-semibold text-base">報修派工平台</div>
-          <p class="mt-2 text-sm opacity-90">LEMP 架構 + WordPress 後台，REST API 串接前後台分離，具備稽核與報表功能。</p>
-          <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">LEMP</span>
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">WordPress</span>
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">REST API</span>
-          </div>
-          <a class="inline-block mt-4 text-sm underline opacity-90" href="#" target="_blank">查看專案</a>
-        </article>
-
-        <article class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6">
-          <div class="font-semibold text-base">弱掃報表自動化</div>
-          <p class="mt-2 text-sm opacity-90">Python 解析 Nessus 結果並匯出 HTML/Excel 報表，支援多部門彙整。</p>
-          <div class="mt-3 flex flex-wrap gap-2 text-xs">
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">Python</span>
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">Nessus</span>
-            <span class="px-2 py-1 rounded-xl bg-black/5 dark:bg-white/10">Automation</span>
-          </div>
-          <a class="inline-block mt-4 text-sm underline opacity-90" href="#" target="_blank">查看專案</a>
-        </article>
-      </div>
     </section>
 
-    <!-- 側欄 -->
-    <aside>
-      <section>
-        <h3 class="text-xl font-semibold mb-3">技能</h3>
-        <div class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6 space-y-4">
-          <div>
-            <div class="flex justify-between text-sm mb-1"><span>React / Next.js</span><span class="opacity-70">90%</span></div>
-            <div class="w-full h-2 bg-black/5 dark:bg-white/10 rounded-full overflow-hidden"><div class="h-full w-[90%] bg-gradient-to-r from-brand-500 to-brand-600"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between text-sm mb-1"><span>TypeScript</span><span class="opacity-70">85%</span></div>
-            <div class="w-full h-2 bg-black/5 dark:bg-white/10 rounded-full overflow-hidden"><div class="h-full w-[85%] bg-gradient-to-r from-brand-500 to-brand-600"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between text-sm mb-1"><span>Nginx / Docker</span><span class="opacity-70">70%</span></div>
-            <div class="w-full h-2 bg-black/5 dark:bg-white/10 rounded-full overflow-hidden"><div class="h-full w-[70%] bg-gradient-to-r from-brand-500 to-brand-600"></div></div>
-          </div>
-          <div>
-            <div class="flex justify-between text-sm mb-1"><span>資安：Nessus / BurpSuite</span><span class="opacity-70">75%</span></div>
-            <div class="w-full h-2 bg-black/5 dark:bg-white/10 rounded-full overflow-hidden"><div class="h-full w-[75%] bg-gradient-to-r from-brand-500 to-brand-600"></div></div>
-          </div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">專業技能</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Technical Skills -->
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-code text-4xl text-indigo-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">技術技能</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">滲透測試</span>
+                                    <span class="text-sm text-gray-500">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">網路安全</span>
+                                    <span class="text-sm text-gray-500">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">資安架構設計</span>
+                                    <span class="text-sm text-gray-500">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Platforms -->
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-tools text-4xl text-green-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">工具平台</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
+                                <span class="text-gray-700">Kali Linux, Metasploit</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
+                                <span class="text-gray-700">Nessus, OpenVAS</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
+                                <span class="text-gray-700">Wireshark, Burp Suite</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
+                                <span class="text-gray-700">SIEM (Splunk, ELK)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
+                                <span class="text-gray-700">AWS Security, Azure</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-users text-4xl text-purple-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">軟實力</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-3"></i>
+                                <span class="text-gray-700">團隊領導</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-3"></i>
+                                <span class="text-gray-700">專案管理</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-3"></i>
+                                <span class="text-gray-700">問題解決</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-3"></i>
+                                <span class="text-gray-700">溝通協調</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-3"></i>
+                                <span class="text-gray-700">危機處理</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold mb-3">學歷</h3>
-        <div class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6 space-y-4">
-          <div>
-            <div class="font-semibold">萬能科技大學 資工系</div>
-            <div class="text-sm opacity-80">學士 · 2016 – 2020</div>
-            <ul class="mt-2 list-disc pl-5 text-sm space-y-1">
-              <li>主修：資料結構、網路安全、雲端運算</li>
-              <li>社團：程式設計研究社</li>
-            </ul>
-          </div>
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">工作經驗</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <!-- Experience 1 -->
+                    <div class="bg-gray-50 p-8 rounded-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">資深資安工程師</h3>
+                                <p class="text-indigo-600 font-medium">科技公司 A</p>
+                            </div>
+                            <span class="text-gray-500 mt-2 md:mt-0">2021 - 現在</span>
+                        </div>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>負責企業整體資安架構規劃與實施，提升安全防護等級30%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>執行定期滲透測試，發現並修復50+個安全漏洞</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>建立資安事件應變流程，縮短事件處理時間60%</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="bg-gray-50 p-8 rounded-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">資安工程師</h3>
+                                <p class="text-indigo-600 font-medium">金融機構 B</p>
+                            </div>
+                            <span class="text-gray-500 mt-2 md:mt-0">2019 - 2021</span>
+                        </div>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>維護核心銀行系統安全，確保100%合規性</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>實施多層次防護機制，成功阻擋多次APT攻擊</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>協助通過ISO 27001認證稽核</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience 3 -->
+                    <div class="bg-gray-50 p-8 rounded-lg card-hover">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">初級資安分析師</h3>
+                                <p class="text-indigo-600 font-medium">資安顧問公司 C</p>
+                            </div>
+                            <span class="text-gray-500 mt-2 md:mt-0">2018 - 2019</span>
+                        </div>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>協助客戶進行資安風險評估與弱點掃描</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>撰寫資安政策文件與標準作業程序</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
+                                <span>提供資安教育訓練，提升員工資安意識</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold mb-3">語言</h3>
-        <div class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6 space-y-2">
-          <div class="flex items-center justify-between text-sm"><span>中文</span><span class="opacity-80">母語</span></div>
-          <div class="flex items-center justify-between text-sm"><span>英文</span><span class="opacity-80">TOEIC 850</span></div>
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">專業證照</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover text-center">
+                        <i class="fas fa-certificate text-4xl text-red-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">CISSP</h3>
+                        <p class="text-gray-600">Certified Information Systems Security Professional</p>
+                        <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">有效</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover text-center">
+                        <i class="fas fa-shield-alt text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">CEH</h3>
+                        <p class="text-gray-600">Certified Ethical Hacker</p>
+                        <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">有效</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover text-center">
+                        <i class="fas fa-cloud text-4xl text-orange-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">AWS Security</h3>
+                        <p class="text-gray-600">AWS Certified Security - Specialty</p>
+                        <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">有效</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover text-center">
+                        <i class="fas fa-search text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">GCIH</h3>
+                        <p class="text-gray-600">GIAC Certified Incident Handler</p>
+                        <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">有效</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="mt-6">
-        <h3 class="text-xl font-semibold mb-3">聯絡</h3>
-        <div class="rounded-2xl bg-white/80 dark:bg-white/5 shadow-sm p-6 flex flex-col gap-3">
-          <a class="px-3 py-2 text-sm text-center rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-black" href="mailto:you@example.com">Email</a>
-          <a class="px-3 py-2 text-sm text-center rounded-2xl border border-black/10 dark:border-white/20" href="tel:+8869xxxxxxxx">Phone</a>
-          <a class="px-3 py-2 text-sm text-center rounded-2xl border border-black/10 dark:border-white/20" href="https://github.com/yourhandle" target="_blank">GitHub</a>
-          <a class="px-3 py-2 text-sm text-center rounded-2xl border border-black/10 dark:border-white/20" href="https://www.linkedin.com/in/yourhandle/" target="_blank">LinkedIn</a>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">聯絡方式</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="max-w-2xl mx-auto">
+                        <h3 class="text-xl font-semibold mb-8 text-gray-800">聯絡資訊</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <i class="fas fa-envelope text-3xl text-indigo-600 mb-4"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">電子郵件</h4>
+                                <p class="text-gray-700">security.engineer@email.com</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <i class="fas fa-phone text-3xl text-indigo-600 mb-4"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">電話</h4>
+                                <p class="text-gray-700">+886-912-345-678</p>
+                            </div>
+                        </div>
+                        <div class="mt-8 grid md:grid-cols-2 gap-8">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <i class="fab fa-linkedin text-3xl text-indigo-600 mb-4"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">LinkedIn</h4>
+                                <p class="text-gray-700">linkedin.com/in/security-engineer</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <i class="fab fa-github text-3xl text-indigo-600 mb-4"></i>
+                                <h4 class="font-semibold text-gray-800 mb-2">GitHub</h4>
+                                <p class="text-gray-700">github.com/security-engineer</p>
+                            </div>
+                        </div>
+                        <div class="mt-8 bg-indigo-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-4 text-gray-800">工作時間</h4>
+                            <p class="text-gray-600 mb-2">週一至週五 9:00 - 18:00</p>
+                            <p class="text-gray-600">緊急事件24小時待命</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-    </aside>
-  </main>
+    </section>
 
-  <footer class="border-t border-black/5 dark:border-white/10 py-8">
-    <div class="max-w-5xl mx-auto px-4 text-sm opacity-70">
-      © <span id="year"></span> 你的名字. All rights reserved.
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 張資安. 版權所有.</p>
+            <p class="mt-2 text-gray-400">專業資安工程師 | 保護您的數位世界</p>
+        </div>
+    </footer>
 
-  <script>
-    // 動態年份與縮寫
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const name = '你的名字';
-    const initials = name.split(/\s+/).map(s=>s[0]).join('').slice(0,2).toUpperCase();
-    document.getElementById('initials').textContent = initials || 'YN';
-  </script>
-</body>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function downloadResume() {
+            alert('履歷下載功能需要實際的PDF檔案。這是展示版本。');
+        }
+
+
+
+        // Animate skill bars when they come into view
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.style.width;
+                    }
+                });
+            });
+
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateSkillBars();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97bae67777d9f1dc',t:'MTc1NzI5NzMzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
