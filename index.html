@@ -1,451 +1,639 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>資安工程師 - 個人履歷</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>信陽電腦科技有限公司</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .skill-bar { transition: width 1s ease-in-out; }
-        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+/*=============== CSS Variables (Added Default) ===============*/
+:root {
+    --header-height: 3rem;
+
+    /* Colors */
+    --first-color: hsl(207, 90%, 61%);
+    --first-color-alt: hsl(207, 90%, 57%);
+    --title-color: hsl(207, 4%, 16%);
+    --text-color: hsl(207, 4%, 28%);
+    --text-color-light: hsl(207, 4%, 56%);
+    --body-color: hsl(207, 4%, 99%); /* Default body color */
+    --container-color: #fff;
+    --border-color: hsl(207, 4%, 87%);
+    --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Added Default */
+    --normal-font-size: 1rem; /* Added Default */
+
+    /* Font weight */
+    --font-medium: 500;
+    --font-semi-bold: 600; /* Added Default */
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: background-color .4s;
+}
+button {
+    border: none;
+    outline: none;
+}
+h1, h2, h3, h4 {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+ul, ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+/*=============== NAV ===============*/
+nav {
+    display: flex;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    background-color: #b8d9ff;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    color: #000000;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+.nav-logo {
+    width: 250px;
+}
+/* Navigation for mobile devices */
+@media screen and (max-width: 1023px) {
+    .nav-logo {
+        margin-left: 15px;
+    }
+    .nav-menu {
+        position: fixed;
+        /* top: 60px; */
+        width: 100%;
+        text-align: left;
+        padding: 20px 30px;
+        background-color: #b8d9ff;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+        /* transform: translateX(100%); */
+        /* transition: transform 1s ease; */
+        z-index: 100;
+
+        top: -100%;
+        transform: translateY(0);
+        transition: top 0.5s ease;
+    }
+    /* 新增由上而下 */
+    .nav-menu.show-menu {
+        top: 60px;
+    }
+    .nav-link {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        /* row-gap: 1.5rem; */
+    }
+    .nav-link li {
+        font-size: 20px;
+        font-weight: 500;
+        color: #000000;
+    }
+    .nav-link > li {
+        cursor: pointer;
+        /* border-bottom: 1px solid #eee;  */
+    }
+    .nav-link > li:last-child {
+        padding: 10px 20px;
+        border-bottom: none;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(62, 152, 255, 0.4);
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .nav-link li:hover {
+        color: #ffffff;
+        box-shadow: 0 4px 10px rgba(62, 152, 255, 0.4);
+        transition: all 0.3s ease;
+        border-radius: 20px;
+        /* padding: 5px 10px; */
+    }
+    .nav-link > li:last-child:hover {
+        color: #3e98ff;
+        box-shadow: 5px 4px 10px rgba(62, 152, 255, 0.4);
+        transition: all 0.3s ease;
+    }
+    .dd-menu {
+        position: relative;
+        overflow: hidden;
+    }
+    .dd-menu.active-dropdown .dd-link {
+        max-height: 500px;
+    }
+    .dd-menu > a i:last-child {
+        font-size: 30px;
+        transition: transform 0.4s ease;
+        display: inline-block;
+    }
+    .dd-menu.dd-open > a i:last-child {
+        transform: rotate(180deg);
+    }
+    .dd-link {
+        position: static;
+        background-color: #b8d9ff;
+        padding-left: 30px;
+        padding-bottom: 0.5rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out, padding 0.1s ease-in-out;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .dd-link li {
+        display: block;
+        padding: 10px;
+        color: #000;
+    }
+    .nav-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 20px 0 20px;
+        column-gap: 1rem;
+        font-size: 25px;
+    }
+    .nav-tool-btn {
+        display: flex;
+        flex-direction: row;
+        column-gap: 15px;
+    }
+    .nav-tool-btn li a {
+        font-size: 0;
+        display: flex;
+        align-items: center;
+    }
+    .nav-tool-btn li a i {
+        font-size: 25px;
+    }
+    .nav-tool-btn li a i:hover {
+        font-size: 35px;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+    .nav-toggle {
+        transition: all 0.6s ease;
+    }
+    .nav-toggle:hover {
+        font-size: 35px;
+        color: #fff;
+        transform: rotate(180deg);
+    }
+}
+/* Show menu */
+.show-menu {
+    transform: translateX(0);
+}
+/*=============== HEADER ===============*/
+header {
+    padding-top: 60px;
+    width: 100%;
+}
+.header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #e0f0ff;
+}
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #3e98ff;
+}
+.header p {
+    font-size: 1.2rem;
+    color: #000;
+}
+
+/*=============== MAIN ===============*/
+main {
+    padding-top: 60px;
+    min-height: 100vh;
+}
+
+/*=============== FOOTER ===============*/
+footer {
+    /* 移除 fixed, 讓它在內容後面 */
+    /* position: fixed; */ 
+    /* bottom: 0;
+    left: 0; */
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding-block: 3rem 2rem;
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+.footer-col h3 {
+    color: #b8d9ff;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+}
+.footer-col p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
+.footer-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.9rem;
+}
+.footer-list li i {
+    margin-right: 10px;
+    color: #b8d9ff;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+.footer-list li a {
+    color: #fff;
+    transition: color 0.3s;
+}
+.footer-list li a:hover {
+    color: #b8d9ff;
+}
+.footer-bar {
+    border-top: 1px solid #333;
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+.footer-bar p {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    .footer-col {
+        flex: 1;
+        padding: 0 15px;
+    }
+    .footer-col:first-child {
+        flex: 1.5; /* 讓介紹文字欄位寬一點 */
+    }
+}
+
+/* @media screen and (min-width: 1024px){
+    nav{
+        padding: 0 80px;
+    }
+    .nav-logo{
+        width: 300px;
+    }
+
+
+
+    .nav-toggle{
+        display: none;
+    }
+} */
+ @media screen and (min-width: 1024px){
+    nav{
+        /* ... 您的現有設定 ... */
+        padding: 0 px;
+        /* 將 nav 的寬度設為最大，並置中 */
+        max-width: 1400px; 
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .nav-logo{
+        /* ... 您的現有設定 ... */
+        width: 200px; /* 稍微縮小 logo 空間 */
+        margin-left: 20px;
+    }
+    .nav-toggle{
+        /* ... 您的現有設定 ... */
+        display: none;
+    }
+
+    /* 👇 新增以下內容 */
+    .nav-menu{
+        /* 讓選單佔滿中間剩餘空間 */
+        flex-grow: 1; 
+    }
+    .nav-link{
+        /* 讓主選單項目橫向排列並靠右對齊 */
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 60px; /* 與 nav 高度一致 */
+        gap: 1.5rem; /* 增加項目間距 */
+        margin-right: 1.5rem;
+    }
+    .nav-link li a{
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.5rem 0.5rem; /* 增加點擊區域 */
+        transition: all 0.3s ease;
+    }
+    .nav-link li a:hover{
+        color: #fff;
+    }
+    .nav-link > li i:first-child{
+        margin-right: 0.25rem; /* 圖標與文字間距 */
+    }
+
+    /* 處理下拉選單容器 */
+    .dd-menu{
+        position: relative; /* 定位子選單的基準 */
+    }
+    /* 隱藏移動版的展開箭頭 */
+    .dd-menu > a i:last-child {
+        display: inline-block; /* 桌面版仍需顯示下拉箭頭 */
+        font-size: 1.5rem;
+        transform: none; /* 取消旋轉 */
+        margin-left: -0.25rem; /* 微調箭頭位置 */
+    }
+
+    /* 處理子選單 (dd-link) */
+    .dd-link{
+        position: absolute; /* 絕對定位 */
+        top: 100%; /* 位於父層下方 */
+        left: 0;
+        min-width: 180px; /* 設定最小寬度 */
+        background-color: #fff;
+        border: 1px solid #eee;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        z-index: 200;
+        
+        /* 隱藏/顯示效果 */
+        display: none; /* 預設隱藏 */
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        /* 清除移動版設定 */
+        max-height: unset;
+        padding: 0.5rem 0;
+    }
+    .dd-menu:hover .dd-link{
+        /* 鼠標懸停時顯示子選單 */
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .dd-link li a{
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #000;
+        font-weight: normal;
+    }
+    .dd-link li a:hover{
+        background-color: #e0f0ff;
+        color: #3e98ff;
+    }
+
+    /* 處理右側工具按鈕 */
+    .nav-btn{
+        margin: 0 20px 0 0;
+    }
+    .nav-tool-btn{
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+    }
+    .nav-tool-btn li a{
+        font-size: 1rem; /* 恢復文字大小 */
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(62, 152, 255, 0.2);
+        border-radius: 5px;
+        color: #3e98ff;
+        transition: all 0.3s ease;
+    }
+    .nav-tool-btn li a:hover{
+        background-color: #3e98ff;
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(62, 152, 255, 0.4);
+    }
+    .nav-tool-btn li a i{
+        font-size: 1.25rem; /* 調整圖標大小 */
+        margin-right: 0.25rem;
+    }
+    .nav-tool-btn li a i:hover{
+        /* 移除移動版的大圖標hover效果 */
+        font-size: 1.25rem;
+        color: inherit;
+        transform: none;
+    }
+}
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header Section -->
-    <header class="gradient-bg text-white py-20">
-        <div class="container mx-auto px-6 text-center">
-            <div class="w-32 h-32 mx-auto mb-6 bg-white rounded-full overflow-hidden shadow-lg border-4 border-white">
-                <svg viewBox="0 0 200 200" class="w-full h-full">
-                    <!-- Background -->
-                    <rect width="200" height="200" fill="#f0f4f8"/>
-                    
-                    <!-- Face -->
-                    <circle cx="100" cy="85" r="35" fill="#fdbcb4"/>
-                    
-                    <!-- Hair -->
-                    <path d="M65 60 Q100 40 135 60 Q140 50 135 45 Q100 25 65 45 Q60 50 65 60" fill="#2d3748"/>
-                    
-                    <!-- Eyes -->
-                    <circle cx="88" cy="80" r="3" fill="#2d3748"/>
-                    <circle cx="112" cy="80" r="3" fill="#2d3748"/>
-                    
-                    <!-- Nose -->
-                    <circle cx="100" cy="90" r="1.5" fill="#f687b3"/>
-                    
-                    <!-- Mouth -->
-                    <path d="M95 100 Q100 105 105 100" stroke="#2d3748" stroke-width="2" fill="none"/>
-                    
-                    <!-- Shirt -->
-                    <rect x="70" y="120" width="60" height="80" fill="#4299e1"/>
-                    
-                    <!-- Tie -->
-                    <polygon points="95,120 105,120 108,140 102,160 98,160 92,140" fill="#2b6cb0"/>
-                    
-                    <!-- Collar -->
-                    <polygon points="70,120 85,135 100,120 115,135 130,120 130,140 70,140" fill="white"/>
-                    
-                    <!-- Glasses (optional professional touch) -->
-                    <circle cx="88" cy="80" r="12" fill="none" stroke="#2d3748" stroke-width="2"/>
-                    <circle cx="112" cy="80" r="12" fill="none" stroke="#2d3748" stroke-width="2"/>
-                    <line x1="100" y1="80" x2="100" y2="80" stroke="#2d3748" stroke-width="2"/>
-                </svg>
-            </div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">張資安</h1>
-            <p class="text-xl md:text-2xl mb-6 opacity-90">資訊安全工程師</p>
-            <p class="text-lg max-w-2xl mx-auto opacity-80">專精於網路安全、滲透測試與資安架構設計，致力於保護企業數位資產安全</p>
-            <div class="mt-8 flex justify-center space-x-4">
-                <button onclick="scrollToSection('contact')" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
-                    <i class="fas fa-envelope mr-2"></i>聯絡我
-                </button>
-                <button onclick="downloadResume()" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition duration-300">
-                    <i class="fas fa-download mr-2"></i>下載履歷
-                </button>
-            </div>
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="#"><img src="logo.png" alt="logo"></a>
         </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-center space-x-8 py-4">
-                <a href="#about" onclick="scrollToSection('about')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">關於我</a>
-                <a href="#skills" onclick="scrollToSection('skills')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">技能</a>
-                <a href="#experience" onclick="scrollToSection('experience')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">經驗</a>
-                <a href="#certifications" onclick="scrollToSection('certifications')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">證照</a>
-                <a href="#contact" onclick="scrollToSection('contact')" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">聯絡</a>
+        <div class="nav-menu">
+            <ul class="nav-link">
+                <li><a href="#"><i class="ri-home-office-line"></i>首頁</a></li>
+                <li><a href="#"><i class="ri-sun-line"></i>關於信陽</a></li>
+                <li class="dd-menu">
+                    <a href="#"><i class="ri-service-line"></i>專業服務<i class="ri-arrow-drop-down-fill"></i></a>
+                    <ul class="dd-link">
+                        <li><a href="#">資訊駐點</a></li>
+                        <li><a href="#">產品經銷</a></li>
+                        <li><a href="#">維修服務</a></li>
+                        <li><a href="#">技術與專案諮詢</a></li>
+                    </ul>
+                </li>
+                <li class="dd-menu">
+                    <a href="#"><i class="ri-calendar-line"></i>解決方案<i class="ri-arrow-drop-down-fill"></i></a>
+                    <ul class="dd-link">
+                        <li><a href="#">資訊系統整合</a></li>
+                        <li><a href="#">網路設備建置</a></li>
+                        <li><a href="#">搬遷專案規劃</a></li>
+                        <li><a href="#">伺服器備援方案</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://www.stc.com.tw/client_login.jsp"><i class="ri-wrench-line"></i>報修服務</a></li>
+            </ul>
+        </div>
+        <div class="nav-btn">
+            <div class="nav-tool">
+                <ul class="nav-tool-btn">
+                    <li><a href="https://www.stc.com.tw/staff_login.jsp"><i class="ri-account-circle-line"></i>員工登入</a></li>
+                </ul>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="ri-menu-4-line"></i>
             </div>
         </div>
     </nav>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">關於我</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">專業背景</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            擁有5年以上資訊安全領域經驗，專精於企業網路安全架構設計、滲透測試、資安事件應變處理。
-                            曾協助多家企業建立完整的資安防護體系，並成功防範多起重大資安威脅。
-                        </p>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-indigo-600 mr-3"></i>
-                                <span class="text-gray-700">台北市，台灣</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-graduation-cap text-indigo-600 mr-3"></i>
-                                <span class="text-gray-700">資訊工程碩士</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-calendar-alt text-indigo-600 mr-3"></i>
-                                <span class="text-gray-700">5+ 年工作經驗</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">核心價值</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                                <span class="text-gray-700">持續學習最新資安技術與威脅情報</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                                <span class="text-gray-700">以預防為主的主動式資安防護理念</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                                <span class="text-gray-700">重視團隊合作與知識分享</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                                <span class="text-gray-700">追求技術卓越與創新解決方案</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <header>
+        <div class="header">
+            <h1>信陽電腦科技有限公司</h1>
+            <p>專業、效率、誠信的資訊服務夥伴</p>
+        </div>
+    </header>
+    <main>
+        </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>信陽電腦科技有限公司</h3>
+                <p>信陽電腦科技有限公司成立於1995年，專注於資訊系統整合、網路建置與資安服務。位於桃園市政府旁，交通便利，服務對象涵蓋中小企業與公家機關。公司秉持專業、效率、誠信的理念，提供穩定可靠的技術支援，致力打造安全、智慧的資訊環境，深受客戶信賴。</p>
+            </div>
+            <div class="footer-col">
+                <h3>聯絡我們</h3>
+                <ul class="footer-list">
+                    <li><i class="ri-map-pin-line"></i>地址：330桃園市桃園區縣府路270之1號2樓</li>
+                    <li><i class="ri-phone-line"></i>電話：(03)336-1251</li>
+                    <li><i class="ri-printer-line"></i>電話：(03)336-1259</li>
+                    <li><i class="ri-mail-line"></i>Email：stc@stc.com.tw</li>
+                    <li><i class="ri-time-line"></i>服務時間：週一至週五 08:00-17:30</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>相關連結</h3>
+                <ul class="footer-list">
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">專業服務</a></li>
+                    <li><a href="#">解決方案</a></li>
+                    <li><a href="#">資訊安全</a></li>
+                    <li><a href="#">線上報修</a></li>
+                    <li><a href="https://www.104.com.tw/company/afg0pko?jobsource=google" class="footer-link">加入我們</a></li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">專業技能</h2>
-            <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Technical Skills -->
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                        <div class="text-center mb-6">
-                            <i class="fas fa-code text-4xl text-indigo-600 mb-4"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">技術技能</h3>
-                        </div>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm font-medium text-gray-700">滲透測試</span>
-                                    <span class="text-sm text-gray-500">90%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm font-medium text-gray-700">網路安全</span>
-                                    <span class="text-sm text-gray-500">95%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm font-medium text-gray-700">資安架構設計</span>
-                                    <span class="text-sm text-gray-500">85%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="skill-bar bg-indigo-600 h-2 rounded-full" style="width: 85%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tools & Platforms -->
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                        <div class="text-center mb-6">
-                            <i class="fas fa-tools text-4xl text-green-600 mb-4"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">工具平台</h3>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
-                                <span class="text-gray-700">Kali Linux, Metasploit</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
-                                <span class="text-gray-700">Nessus, OpenVAS</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
-                                <span class="text-gray-700">Wireshark, Burp Suite</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
-                                <span class="text-gray-700">SIEM (Splunk, ELK)</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-circle text-green-500 text-xs mr-3"></i>
-                                <span class="text-gray-700">AWS Security, Azure</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Soft Skills -->
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                        <div class="text-center mb-6">
-                            <i class="fas fa-users text-4xl text-purple-600 mb-4"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">軟實力</h3>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <i class="fas fa-star text-yellow-500 mr-3"></i>
-                                <span class="text-gray-700">團隊領導</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-star text-yellow-500 mr-3"></i>
-                                <span class="text-gray-700">專案管理</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-star text-yellow-500 mr-3"></i>
-                                <span class="text-gray-700">問題解決</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-star text-yellow-500 mr-3"></i>
-                                <span class="text-gray-700">溝通協調</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-star text-yellow-500 mr-3"></i>
-                                <span class="text-gray-700">危機處理</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">工作經驗</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="space-y-8">
-                    <!-- Experience 1 -->
-                    <div class="bg-gray-50 p-8 rounded-lg card-hover">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800">資深資安工程師</h3>
-                                <p class="text-indigo-600 font-medium">科技公司 A</p>
-                            </div>
-                            <span class="text-gray-500 mt-2 md:mt-0">2021 - 現在</span>
-                        </div>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>負責企業整體資安架構規劃與實施，提升安全防護等級30%</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>執行定期滲透測試，發現並修復50+個安全漏洞</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>建立資安事件應變流程，縮短事件處理時間60%</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Experience 2 -->
-                    <div class="bg-gray-50 p-8 rounded-lg card-hover">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800">資安工程師</h3>
-                                <p class="text-indigo-600 font-medium">金融機構 B</p>
-                            </div>
-                            <span class="text-gray-500 mt-2 md:mt-0">2019 - 2021</span>
-                        </div>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>維護核心銀行系統安全，確保100%合規性</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>實施多層次防護機制，成功阻擋多次APT攻擊</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>協助通過ISO 27001認證稽核</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Experience 3 -->
-                    <div class="bg-gray-50 p-8 rounded-lg card-hover">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-gray-800">初級資安分析師</h3>
-                                <p class="text-indigo-600 font-medium">資安顧問公司 C</p>
-                            </div>
-                            <span class="text-gray-500 mt-2 md:mt-0">2018 - 2019</span>
-                        </div>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>協助客戶進行資安風險評估與弱點掃描</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>撰寫資安政策文件與標準作業程序</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chevron-right text-indigo-600 mr-3 mt-1 text-sm"></i>
-                                <span>提供資安教育訓練，提升員工資安意識</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">專業證照</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover text-center">
-                        <i class="fas fa-certificate text-4xl text-red-600 mb-4"></i>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">CISSP</h3>
-                        <p class="text-gray-600">Certified Information Systems Security Professional</p>
-                        <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">有效</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover text-center">
-                        <i class="fas fa-shield-alt text-4xl text-blue-600 mb-4"></i>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">CEH</h3>
-                        <p class="text-gray-600">Certified Ethical Hacker</p>
-                        <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">有效</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover text-center">
-                        <i class="fas fa-cloud text-4xl text-orange-600 mb-4"></i>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">AWS Security</h3>
-                        <p class="text-gray-600">AWS Certified Security - Specialty</p>
-                        <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">有效</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover text-center">
-                        <i class="fas fa-search text-4xl text-purple-600 mb-4"></i>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">GCIH</h3>
-                        <p class="text-gray-600">GIAC Certified Incident Handler</p>
-                        <span class="inline-block mt-3 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">有效</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">聯絡方式</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center">
-                    <div class="max-w-2xl mx-auto">
-                        <h3 class="text-xl font-semibold mb-8 text-gray-800">聯絡資訊</h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-gray-50 p-6 rounded-lg">
-                                <i class="fas fa-envelope text-3xl text-indigo-600 mb-4"></i>
-                                <h4 class="font-semibold text-gray-800 mb-2">電子郵件</h4>
-                                <p class="text-gray-700">security.engineer@email.com</p>
-                            </div>
-                            <div class="bg-gray-50 p-6 rounded-lg">
-                                <i class="fas fa-phone text-3xl text-indigo-600 mb-4"></i>
-                                <h4 class="font-semibold text-gray-800 mb-2">電話</h4>
-                                <p class="text-gray-700">+886-912-345-678</p>
-                            </div>
-                        </div>
-                        <div class="mt-8 grid md:grid-cols-2 gap-8">
-                            <div class="bg-gray-50 p-6 rounded-lg">
-                                <i class="fab fa-linkedin text-3xl text-indigo-600 mb-4"></i>
-                                <h4 class="font-semibold text-gray-800 mb-2">LinkedIn</h4>
-                                <p class="text-gray-700">linkedin.com/in/security-engineer</p>
-                            </div>
-                            <div class="bg-gray-50 p-6 rounded-lg">
-                                <i class="fab fa-github text-3xl text-indigo-600 mb-4"></i>
-                                <h4 class="font-semibold text-gray-800 mb-2">GitHub</h4>
-                                <p class="text-gray-700">github.com/security-engineer</p>
-                            </div>
-                        </div>
-                        <div class="mt-8 bg-indigo-50 p-6 rounded-lg">
-                            <h4 class="text-lg font-semibold mb-4 text-gray-800">工作時間</h4>
-                            <p class="text-gray-600 mb-2">週一至週五 9:00 - 18:00</p>
-                            <p class="text-gray-600">緊急事件24小時待命</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 張資安. 版權所有.</p>
-            <p class="mt-2 text-gray-400">專業資安工程師 | 保護您的數位世界</p>
+        <div class="footer-bar">
+            <p>Copyright &copy; 2025 STC Corp. All rights reseved.</p>
         </div>
     </footer>
-
     <script>
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        function downloadResume() {
-            alert('履歷下載功能需要實際的PDF檔案。這是展示版本。');
-        }
-
-
-
-        // Animate skill bars when they come into view
-        function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-bar');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.width = entry.target.style.width;
-                    }
+        const navMenu = document.querySelector('.nav-menu'),
+              navToggle = document.getElementById('nav-toggle'),
+              navLink = document.querySelectorAll('.nav-link li a'),
+              ddMenus = document.querySelectorAll('.dd-menu');
+        const navIcon = navToggle ? navToggle.querySelector('i') : null; // 檢查 navToggle 是否存在
+        const desktopBreakpoint = 1024;
+        
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show-menu')
+                const menuIsOpen = navMenu.classList.contains('show-menu');
+                
+                // 關閉所有下拉選單
+                ddMenus.forEach(dd => {
+                    dd.classList.remove('active-dropdown');
+                    dd.classList.remove('dd-open'); 
                 });
-            });
 
-            skillBars.forEach(bar => {
-                observer.observe(bar);
-            });
+                // 切換漢堡圖標
+                if (navIcon) {
+                    if (menuIsOpen) {
+                        navIcon.classList.replace('ri-menu-4-line', 'ri-close-line');
+                    } else {
+                        navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
+                    }
+                }
+            })
         }
-
-        // Initialize animations when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            animateSkillBars();
+        
+        ddMenus.forEach(menu => {
+            menu.addEventListener('click', (e) => {
+                // 僅在移動設備尺寸下生效
+                if (window.innerWidth < desktopBreakpoint) {
+                    // 檢查點擊的目標是否是下拉選單中的連結
+                    const isDropdownLink = e.target.closest('.dd-link');
+                    if (isDropdownLink) return;
+                    
+                    e.preventDefault(); // 阻止父級 dd-menu 連結的預設行為
+                    
+                    const isOpening = menu.classList.contains('active-dropdown');
+                    
+                    // 關閉其他已開啟的下拉選單
+                    ddMenus.forEach(otherMenu => {
+                        if (otherMenu !== menu) {
+                            otherMenu.classList.remove('active-dropdown');
+                            otherMenu.classList.remove('dd-open'); 
+                        }
+                    });
+                    
+                    // 切換當前的下拉選單
+                    if (!isOpening) {
+                        menu.classList.add('active-dropdown');
+                        menu.classList.add('dd-open'); 
+                    } else {
+                        menu.classList.remove('active-dropdown');
+                        menu.classList.remove('dd-open');
+                    }
+                }
+            });
         });
+        
+        function linkAction(event) {
+            // 判斷點擊的是否為下拉選單的父級 (dd-menu)
+            const clickedIsDropdownParent = event.currentTarget.closest('.dd-menu');
+            
+            // 如果不是下拉選單的父級，或者在桌面版尺寸下，則關閉主選單
+            if (!clickedIsDropdownParent || window.innerWidth >= desktopBreakpoint) {
+                const navMenu = document.querySelector('.nav-menu')
+                const menuIsOpen = navMenu.classList.contains('show-menu');
+                
+                navMenu.classList.remove('show-menu');
+                
+                // 關閉所有下拉選單
+                ddMenus.forEach(dd => {
+                    dd.classList.remove('active-dropdown');
+                    dd.classList.remove('dd-open'); 
+                });
+
+                // 切換漢堡圖標回菜單
+                if (menuIsOpen && navIcon) {
+                    navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
+                }
+            }
+        }
+        
+        navLink.forEach(n => n.addEventListener('click', linkAction));
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97bae67777d9f1dc',t:'MTc1NzI5NzMzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
