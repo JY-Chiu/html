@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>信陽電腦科技有限公司</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
     <style>
-/*=============== BASE ===============*/
+        /*=============== BASE ===============*/
 *{
     box-sizing: border-box;
     padding: 0;
@@ -16,10 +17,10 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    background-color: var(--body-color);
-    color: var(--text-color);
+    font-family: '微軟正黑體', 'Arial', sans-serif;
+    font-size: .938rem;
+    background-color: #fff;
+    color: #000;
     transition: background-color .4s;
 }
 button{
@@ -27,8 +28,8 @@ button{
     outline: none;
 }
 h1, h2, h3, h4{
-    color: var(--title-color);
-    font-weight: var(--font-semi-bold);
+    color: #260c23;
+    font-weight: 600;
 }
 ul, ol{
     list-style: none;
@@ -59,7 +60,7 @@ nav{
     width: 250px;
 }
 /* Navigation for mobile devices */
-@media screen and (max-width: 1023px){
+@media screen and (max-width: 1279px){
     .nav-logo{
         margin-left: 15px;
     }
@@ -89,17 +90,17 @@ nav{
         gap: 16px;
         /* row-gap: 1.5rem; */
     }
-    .nav-link li a {
-        display: block; /* 讓連結變成塊級元素 */
-        padding: 10px 0; /* 確保點擊區域有足夠高度 */
-    }
-    .nav-link li a:hover{
-        color: #fff;
-    }
     .nav-link li{
         font-size: 20px;
         font-weight: 500;
         color: #000000;
+    }
+    .nav-link li a{
+        display: block;
+        padding: 10px 0;
+    }
+    .nav-link li a:hover{
+        color: #fff;
     }
     .nav-link > li {
         cursor: pointer;
@@ -126,6 +127,9 @@ nav{
         color: #3e98ff;
         box-shadow: 5px 4px 10px rgba(62, 152, 255, 0.4);
         transition: all 0.3s ease;
+    }
+    .nav-link > li:last-child:hover a{
+        color: #3e98ff;
     }
     .dd-menu{
         position: relative;
@@ -157,6 +161,9 @@ nav{
         display: block;
         padding: 10px;
         color: #000;
+    }
+    .repair-2{
+        display: none;
     }
     .nav-btn{
         display: flex;
@@ -219,111 +226,83 @@ footer{
     padding-block: 3rem 2rem;
     text-align: center;
 }
-/* @media screen and (min-width: 1024px){
+
+@media screen and (min-width: 1280px){
     nav{
-        padding: 0 80px;
+        padding: 0 30px;
     }
     .nav-logo{
         width: 300px;
     }
-
-
-
     .nav-toggle{
         display: none;
     }
-} */
- @media screen and (min-width: 1024px){
-    nav{
-        /* ... 您的現有設定 ... */
-        padding: 0 px;
-    }
-    .nav-logo{
-        /* ... 您的現有設定 ... */
-        width: 300px;
-    }
-    .nav-toggle{
-        /* ... 您的現有設定 ... */
+    .repair-1{
         display: none;
-    }
-
-    /* 👇 新增以下內容 */
-    .nav-menu{
-        /* 讓選單佔滿中間剩餘空間 */
-        flex-grow: 1; 
     }
     .nav-link{
-        /* 讓主選單項目橫向排列並靠右對齊 */
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
-        height: 60px; /* 與 nav 高度一致 */
-        gap: 2rem; /* 增加項目間距 */
+        height: 60px;
+        gap: 20px;
     }
     .nav-link li a{
-        font-size: 1rem;
-        font-weight: 500;
-        padding: 0.5rem 0.5rem; /* 增加點擊區域 */
+        font-size: 18px;
+        font-weight: 600;
         transition: all 0.3s ease;
     }
     .nav-link li a:hover{
         color: #fff;
     }
     .nav-link > li i:first-child{
-        margin-right: 0.25rem; /* 圖標與文字間距 */
+        margin-right: 4px;
     }
-
-    /* 處理下拉選單容器 */
-    .dd-menu{
-        position: relative; /* 定位子選單的基準 */
+    .dd-menu {
+        position: relative; 
+        height: 60px; 
+        display: flex;
+        align-items: center;
     }
-    /* 隱藏移動版的展開箭頭 */
     .dd-menu > a i:last-child {
-        display: inline-block; /* 桌面版仍需顯示下拉箭頭 */
-        font-size: 1.5rem;
-        transform: none; /* 取消旋轉 */
+        display: inline-block;
+        font-size: 18px;
+        transform: none;
     }
-
-    /* 處理子選單 (dd-link) */
     .dd-link{
-        position: absolute; /* 絕對定位 */
-        top: 100%; /* 位於父層下方 */
+        position: absolute;
+        top: 100%;
         left: 0;
-        min-width: 180px; /* 設定最小寬度 */
+        min-width: 180px;
         background-color: #fff;
         border: 1px solid #eee;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        z-index: 200;
-        
-        /* 隱藏/顯示效果 */
-        display: none; /* 預設隱藏 */
+        border-radius: 10px;
+        z-index: 100;
+        display: none;
         opacity: 0;
         transform: translateY(10px);
         transition: opacity 0.3s ease, transform 0.3s ease;
-
-        /* 清除移動版設定 */
         max-height: unset;
-        padding: 0.5rem 0;
+        padding: 10px 0;
     }
     .dd-menu:hover .dd-link{
-        /* 鼠標懸停時顯示子選單 */
         display: block;
         opacity: 1;
         transform: translateY(0);
     }
     .dd-link li a{
         display: block;
-        padding: 0.5rem 1rem;
+        padding: 8px 16px;
         color: #000;
-        font-weight: normal;
+        font-size: 18px;
+        font-weight: 500;
     }
     .dd-link li a:hover{
-        background-color: #e0f0ff;
-        color: #3e98ff;
+        background-color: #007bff;
+        color: #ffffff;
     }
 
-    /* 處理右側工具按鈕 */
     .nav-btn{
         margin: 0;
     }
@@ -333,14 +312,14 @@ footer{
         column-gap: 15px;
     }
     .nav-tool-btn li a{
-        font-size: 1rem; /* 恢復文字大小 */
+        font-size: 18px;
+        font-weight: 600;
         display: flex;
         align-items: center;
-        padding: 0.5rem 1rem;
+        padding: 5px 12px;
         background-color: #fff;
         box-shadow: 0 2px 5px rgba(62, 152, 255, 0.2);
-        border-radius: 5px;
-        color: #3e98ff;
+        border-radius: 8px;
         transition: all 0.3s ease;
     }
     .nav-tool-btn li a:hover{
@@ -349,12 +328,11 @@ footer{
         box-shadow: 0 4px 10px rgba(62, 152, 255, 0.4);
     }
     .nav-tool-btn li a i{
-        font-size: 1.25rem; /* 調整圖標大小 */
-        margin-right: 0.25rem;
+        font-size: 25px;
+        margin-right: 4px;
     }
     .nav-tool-btn li a i:hover{
-        /* 移除移動版的大圖標hover效果 */
-        font-size: 1.25rem;
+        font-size: 25px;
         color: inherit;
         transform: none;
     }
@@ -388,12 +366,22 @@ footer{
                         <li><a href="#">伺服器備援方案</a></li>
                     </ul>
                 </li>
-                <li><a href="https://www.stc.com.tw/client_login.jsp"><i class="ri-wrench-line"></i>報修服務</a></li>
+                <li class="dd-menu">
+                    <a href="#"><i class="ri-shield-keyhole-line"></i>資訊安全<i class="ri-arrow-drop-down-fill"></i></a>
+                    <ul class="dd-link">
+                        <li><a href="#">主機弱掃</a></li>
+                        <li><a href="#">網頁弱掃</a></li>
+                        <li><a href="#">滲透測試</a></li>
+                        <li><a href="#">資安防護整合</a></li>
+                    </ul>
+                </li>
+                <li class="repair-1"><a href="https://www.stc.com.tw/client_login.jsp"><i class="ri-wrench-line"></i>報修服務</a></li>
             </ul>
         </div>
         <div class="nav-btn">
             <div class="nav-tool">
                 <ul class="nav-tool-btn">
+                    <li class="repair-2"><a href="https://www.stc.com.tw/client_login.jsp"><i class="ri-wrench-line"></i>線上報修</a></li>
                     <li><a href="https://www.stc.com.tw/staff_login.jsp"><i class="ri-account-circle-line"></i>員工登入</a></li>
                 </ul>
             </div>
@@ -442,63 +430,64 @@ footer{
     </footer>
     <script>
         const navMenu = document.querySelector('.nav-menu'),
-              navToggle = document.getElementById('nav-toggle'),
-              navLink = document.querySelectorAll('.nav-link li a'),
-              ddMenus = document.querySelectorAll('.dd-menu');
-        const navIcon = navToggle.querySelector('i');
-        const desktopBreakpoint = 1024;
-        if(navToggle){
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('show-menu')
-                const menuIsOpen = navMenu.classList.contains('show-menu');
-                ddMenus.forEach(dd => {
-                    dd.classList.remove('active-dropdown');
-                });
-                if(menuIsOpen){
-                    navIcon.classList.replace('ri-menu-4-line', 'ri-close-line');
-                } else {
-                    navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
-                }
-            })
+      navToggle = document.getElementById('nav-toggle'),
+      navLink = document.querySelectorAll('.nav-link li a'),
+      ddMenus = document.querySelectorAll('.dd-menu');
+const navIcon = navToggle.querySelector('i');
+const desktopBreakpoint = 1024;
+if(navToggle){
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show-menu')
+        const menuIsOpen = navMenu.classList.contains('show-menu');
+        ddMenus.forEach(dd => {
+            dd.classList.remove('active-dropdown');
+        });
+        if(menuIsOpen){
+            navIcon.classList.replace('ri-menu-4-line', 'ri-close-line');
+        } else {
+            navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
         }
-        ddMenus.forEach(menu => {
-            menu.addEventListener('click', (e) => {
-                if (window.innerWidth < desktopBreakpoint) {
-                    const isDropdownLink = e.target.closest('.dd-link');
-                    if (isDropdownLink) return;
-                    e.preventDefault();
-                    const isOpening = menu.classList.contains('active-dropdown');
-                    ddMenus.forEach(otherMenu => {
-                        if (otherMenu !== menu) {
-                            otherMenu.classList.remove('active-dropdown');
-                            otherMenu.classList.remove('dd-open'); 
-                        }
-                    });
-                    if (!isOpening) {
-                        menu.classList.add('active-dropdown');
-                        menu.classList.add('dd-open'); 
-                    } else {
-                        menu.classList.remove('active-dropdown');
-                        menu.classList.remove('dd-open');
-                    }
+    })
+}
+ddMenus.forEach(menu => {
+    menu.addEventListener('click', (e) => {
+        if (window.innerWidth < desktopBreakpoint) {
+            const isDropdownLink = e.target.closest('.dd-link');
+            if (isDropdownLink) return;
+            e.preventDefault();
+            const isOpening = menu.classList.contains('active-dropdown');
+            ddMenus.forEach(otherMenu => {
+                if (otherMenu !== menu) {
+                    otherMenu.classList.remove('active-dropdown');
+                    otherMenu.classList.remove('dd-open'); 
                 }
             });
-        });
-        function linkAction(event){
-            const clickedIsDropdownParent = event.currentTarget.closest('.dd-menu');
-            if (!clickedIsDropdownParent || window.innerWidth >= desktopBreakpoint) {
-                const navMenu = document.querySelector('.nav-menu')
-                const menuIsOpen = navMenu.classList.contains('show-menu');
-                navMenu.classList.remove('show-menu');
-                ddMenus.forEach(dd => {
-                    dd.classList.remove('active-dropdown');
-                });
-                if(menuIsOpen){
-                    navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
-                }
+            if (!isOpening) {
+                menu.classList.add('active-dropdown');
+                menu.classList.add('dd-open'); 
+            } else {
+                menu.classList.remove('active-dropdown');
+                menu.classList.remove('dd-open');
             }
         }
-        navLink.forEach(n => n.addEventListener('click', linkAction));
+    });
+});
+function linkAction(event){
+    const clickedIsDropdownParent = event.currentTarget.closest('.dd-menu');
+    if (!clickedIsDropdownParent || window.innerWidth >= desktopBreakpoint) {
+        const navMenu = document.querySelector('.nav-menu')
+        const menuIsOpen = navMenu.classList.contains('show-menu');
+        navMenu.classList.remove('show-menu');
+        ddMenus.forEach(dd => {
+            dd.classList.remove('active-dropdown');
+        });
+        if(menuIsOpen){
+            navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
+        }
+    }
+}
+navLink.forEach(n => n.addEventListener('click', linkAction));
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
