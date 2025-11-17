@@ -6,65 +6,44 @@
     <title>信陽電腦科技有限公司</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
     <style>
-/*=============== CSS Variables (Added Default) ===============*/
-:root {
-    --header-height: 3rem;
-
-    /* Colors */
-    --first-color: hsl(207, 90%, 61%);
-    --first-color-alt: hsl(207, 90%, 57%);
-    --title-color: hsl(207, 4%, 16%);
-    --text-color: hsl(207, 4%, 28%);
-    --text-color-light: hsl(207, 4%, 56%);
-    --body-color: hsl(207, 4%, 99%); /* Default body color */
-    --container-color: #fff;
-    --border-color: hsl(207, 4%, 87%);
-    --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Added Default */
-    --normal-font-size: 1rem; /* Added Default */
-
-    /* Font weight */
-    --font-medium: 500;
-    --font-semi-bold: 600; /* Added Default */
-}
-
 /*=============== BASE ===============*/
-* {
+*{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-html {
+html{
     scroll-behavior: smooth;
 }
-body {
+body{
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     background-color: var(--body-color);
     color: var(--text-color);
     transition: background-color .4s;
 }
-button {
+button{
     border: none;
     outline: none;
 }
-h1, h2, h3, h4 {
+h1, h2, h3, h4{
     color: var(--title-color);
     font-weight: var(--font-semi-bold);
 }
-ul, ol {
+ul, ol{
     list-style: none;
 }
-a {
+a{
     text-decoration: none;
     color: inherit;
 }
-img {
+img{
     display: block;
     max-width: 100%;
     height: auto;
 }
 /*=============== NAV ===============*/
-nav {
+nav{
     display: flex;
     position: fixed;
     height: 60px;
@@ -76,15 +55,15 @@ nav {
     justify-content: space-between;
     z-index: 100;
 }
-.nav-logo {
+.nav-logo{
     width: 250px;
 }
 /* Navigation for mobile devices */
-@media screen and (max-width: 1023px) {
-    .nav-logo {
+@media screen and (max-width: 1023px){
+    .nav-logo{
         margin-left: 15px;
     }
-    .nav-menu {
+    .nav-menu{
         position: fixed;
         /* top: 60px; */
         width: 100%;
@@ -101,16 +80,16 @@ nav {
         transition: top 0.5s ease;
     }
     /* 新增由上而下 */
-    .nav-menu.show-menu {
+    .nav-menu.show-menu{
         top: 60px;
     }
-    .nav-link {
+    .nav-link{
         display: flex;
         flex-direction: column;
         gap: 16px;
         /* row-gap: 1.5rem; */
     }
-    .nav-link li {
+    .nav-link li{
         font-size: 20px;
         font-weight: 500;
         color: #000000;
@@ -129,19 +108,19 @@ nav {
         margin-left: auto;
         margin-right: auto;
     }
-    .nav-link li:hover {
+    .nav-link li:hover{
         color: #ffffff;
         box-shadow: 0 4px 10px rgba(62, 152, 255, 0.4);
         transition: all 0.3s ease;
         border-radius: 20px;
         /* padding: 5px 10px; */
     }
-    .nav-link > li:last-child:hover {
+    .nav-link > li:last-child:hover{
         color: #3e98ff;
         box-shadow: 5px 4px 10px rgba(62, 152, 255, 0.4);
         transition: all 0.3s ease;
     }
-    .dd-menu {
+    .dd-menu{
         position: relative;
         overflow: hidden;
     }
@@ -156,7 +135,7 @@ nav {
     .dd-menu.dd-open > a i:last-child {
         transform: rotate(180deg);
     }
-    .dd-link {
+    .dd-link{
         position: static;
         background-color: #b8d9ff;
         padding-left: 30px;
@@ -167,12 +146,12 @@ nav {
         padding-top: 0;
         padding-bottom: 0;
     }
-    .dd-link li {
+    .dd-link li{
         display: block;
         padding: 10px;
         color: #000;
     }
-    .nav-btn {
+    .nav-btn{
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -181,141 +160,58 @@ nav {
         column-gap: 1rem;
         font-size: 25px;
     }
-    .nav-tool-btn {
+    .nav-tool-btn{
         display: flex;
         flex-direction: row;
         column-gap: 15px;
     }
-    .nav-tool-btn li a {
+    .nav-tool-btn li a{
         font-size: 0;
         display: flex;
         align-items: center;
     }
-    .nav-tool-btn li a i {
+    .nav-tool-btn li a i{
         font-size: 25px;
     }
-    .nav-tool-btn li a i:hover {
+    .nav-tool-btn li a i:hover{
         font-size: 35px;
         color: #fff;
         transition: all 0.3s ease;
     }
-    .nav-toggle {
+    .nav-toggle{
         transition: all 0.6s ease;
     }
-    .nav-toggle:hover {
+    .nav-toggle:hover{
         font-size: 35px;
         color: #fff;
         transform: rotate(180deg);
     }
 }
 /* Show menu */
-.show-menu {
+.show-menu{
     transform: translateX(0);
 }
 /*=============== HEADER ===============*/
-header {
+header{
     padding-top: 60px;
     width: 100%;
 }
-.header {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #e0f0ff;
-}
-.header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #3e98ff;
-}
-.header p {
-    font-size: 1.2rem;
-    color: #000;
-}
-
 /*=============== MAIN ===============*/
-main {
+main{
     padding-top: 60px;
     min-height: 100vh;
 }
-
 /*=============== FOOTER ===============*/
-footer {
-    /* 移除 fixed, 讓它在內容後面 */
-    /* position: fixed; */ 
-    /* bottom: 0;
-    left: 0; */
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     background-color: #000;
     color: #fff;
     padding-block: 3rem 2rem;
     text-align: center;
 }
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 0 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: left;
-}
-.footer-col h3 {
-    color: #b8d9ff;
-    margin-bottom: 15px;
-    font-size: 1.25rem;
-}
-.footer-col p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-.footer-list {
-    list-style: none;
-    padding: 0;
-}
-.footer-list li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: flex-start;
-    font-size: 0.9rem;
-}
-.footer-list li i {
-    margin-right: 10px;
-    color: #b8d9ff;
-    flex-shrink: 0;
-    margin-top: 3px;
-}
-.footer-list li a {
-    color: #fff;
-    transition: color 0.3s;
-}
-.footer-list li a:hover {
-    color: #b8d9ff;
-}
-.footer-bar {
-    border-top: 1px solid #333;
-    margin-top: 2rem;
-    padding-top: 1rem;
-}
-.footer-bar p {
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-@media screen and (min-width: 768px) {
-    .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-    }
-    .footer-col {
-        flex: 1;
-        padding: 0 15px;
-    }
-    .footer-col:first-child {
-        flex: 1.5; /* 讓介紹文字欄位寬一點 */
-    }
-}
-
 /* @media screen and (min-width: 1024px){
     nav{
         padding: 0 80px;
@@ -334,16 +230,10 @@ footer {
     nav{
         /* ... 您的現有設定 ... */
         padding: 0 px;
-        /* 將 nav 的寬度設為最大，並置中 */
-        width: 100%; 
-        margin: 0 auto;
-        left: 50%;
-        transform: translateX(-50%);
     }
     .nav-logo{
         /* ... 您的現有設定 ... */
-        width: 200px; /* 稍微縮小 logo 空間 */
-        margin-left: 20px;
+        width: 300px;
     }
     .nav-toggle{
         /* ... 您的現有設定 ... */
@@ -361,8 +251,7 @@ footer {
         justify-content: flex-end;
         align-items: center;
         height: 60px; /* 與 nav 高度一致 */
-        gap: 1.5rem; /* 增加項目間距 */
-        margin-right: 1.5rem;
+        gap: 2rem; /* 增加項目間距 */
     }
     .nav-link li a{
         font-size: 1rem;
@@ -386,7 +275,6 @@ footer {
         display: inline-block; /* 桌面版仍需顯示下拉箭頭 */
         font-size: 1.5rem;
         transform: none; /* 取消旋轉 */
-        margin-left: -0.25rem; /* 微調箭頭位置 */
     }
 
     /* 處理子選單 (dd-link) */
@@ -430,7 +318,7 @@ footer {
 
     /* 處理右側工具按鈕 */
     .nav-btn{
-        margin: 0 20px 0 0;
+        margin: 0;
     }
     .nav-tool-btn{
         display: flex;
@@ -513,8 +401,6 @@ footer {
             <p>專業、效率、誠信的資訊服務夥伴</p>
         </div>
     </header>
-    <main>
-        </main>
     <footer>
         <div class="footer-content">
             <div class="footer-col">
@@ -552,52 +438,35 @@ footer {
               navToggle = document.getElementById('nav-toggle'),
               navLink = document.querySelectorAll('.nav-link li a'),
               ddMenus = document.querySelectorAll('.dd-menu');
-        const navIcon = navToggle ? navToggle.querySelector('i') : null; // 檢查 navToggle 是否存在
+        const navIcon = navToggle.querySelector('i');
         const desktopBreakpoint = 1024;
-        
-        if (navToggle) {
+        if(navToggle){
             navToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('show-menu')
                 const menuIsOpen = navMenu.classList.contains('show-menu');
-                
-                // 關閉所有下拉選單
                 ddMenus.forEach(dd => {
                     dd.classList.remove('active-dropdown');
-                    dd.classList.remove('dd-open'); 
                 });
-
-                // 切換漢堡圖標
-                if (navIcon) {
-                    if (menuIsOpen) {
-                        navIcon.classList.replace('ri-menu-4-line', 'ri-close-line');
-                    } else {
-                        navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
-                    }
+                if(menuIsOpen){
+                    navIcon.classList.replace('ri-menu-4-line', 'ri-close-line');
+                } else {
+                    navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
                 }
             })
         }
-        
         ddMenus.forEach(menu => {
             menu.addEventListener('click', (e) => {
-                // 僅在移動設備尺寸下生效
                 if (window.innerWidth < desktopBreakpoint) {
-                    // 檢查點擊的目標是否是下拉選單中的連結
                     const isDropdownLink = e.target.closest('.dd-link');
                     if (isDropdownLink) return;
-                    
-                    e.preventDefault(); // 阻止父級 dd-menu 連結的預設行為
-                    
+                    e.preventDefault();
                     const isOpening = menu.classList.contains('active-dropdown');
-                    
-                    // 關閉其他已開啟的下拉選單
                     ddMenus.forEach(otherMenu => {
                         if (otherMenu !== menu) {
                             otherMenu.classList.remove('active-dropdown');
                             otherMenu.classList.remove('dd-open'); 
                         }
                     });
-                    
-                    // 切換當前的下拉選單
                     if (!isOpening) {
                         menu.classList.add('active-dropdown');
                         menu.classList.add('dd-open'); 
@@ -608,31 +477,20 @@ footer {
                 }
             });
         });
-        
-        function linkAction(event) {
-            // 判斷點擊的是否為下拉選單的父級 (dd-menu)
+        function linkAction(event){
             const clickedIsDropdownParent = event.currentTarget.closest('.dd-menu');
-            
-            // 如果不是下拉選單的父級，或者在桌面版尺寸下，則關閉主選單
             if (!clickedIsDropdownParent || window.innerWidth >= desktopBreakpoint) {
                 const navMenu = document.querySelector('.nav-menu')
                 const menuIsOpen = navMenu.classList.contains('show-menu');
-                
                 navMenu.classList.remove('show-menu');
-                
-                // 關閉所有下拉選單
                 ddMenus.forEach(dd => {
                     dd.classList.remove('active-dropdown');
-                    dd.classList.remove('dd-open'); 
                 });
-
-                // 切換漢堡圖標回菜單
-                if (menuIsOpen && navIcon) {
+                if(menuIsOpen){
                     navIcon.classList.replace('ri-close-line', 'ri-menu-4-line');
                 }
             }
         }
-        
         navLink.forEach(n => n.addEventListener('click', linkAction));
     </script>
 </body>
