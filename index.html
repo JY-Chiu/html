@@ -236,23 +236,29 @@
         footer {
             background-color: var(--footer-bg-color);
             color: var(--footer-text-color);
-            padding: 50px 20px 30px;
+            padding: 50px 0 30px; 
         }
 
         .footer-content {
             display: flex;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
+            flex-wrap: nowrap; 
+            width: 80%; /* 桌面版寬度為 80% */
+            max-width: 1400px; 
+            margin: 0 auto; /* 置中 */
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 30px;
         }
 
-        .footer-col {
-            flex: 1; /* 修改此處：從 1.5 改為 1，實現 1:1:1 */
-            min-width: 250px;
-            padding: 0 15px;
-            margin-bottom: 30px;
+        /* 調整欄位比例為 2:1:1 */
+        .footer-col:nth-child(1) {
+            flex: 2; /* 第一欄佔 2 份 */
+            padding: 0 20px;
+        }
+
+        .footer-col:nth-child(2),
+        .footer-col:nth-child(3) {
+            flex: 1; /* 第二、三欄各佔 1 份 */
+            padding: 0 20px;
         }
 
         .footer-col h3 {
@@ -293,6 +299,8 @@
             padding-top: 20px;
             font-size: 0.85rem;
             color: rgba(255,255,255,0.5);
+            width: 80%;
+            margin: 0 auto;
         }
 
         #ip-display {
@@ -300,13 +308,31 @@
             font-weight: bold;
         }
 
+        /* 響應式調整 */
+        @media (max-width: 1024px) {
+            .footer-content {
+                width: 90%; 
+            }
+        }
+
         @media (max-width: 768px) {
-            .footer-col {
+            .footer-content {
+                width: 100%;
+                flex-wrap: wrap; 
+                padding: 0 20px;
+            }
+            .footer-col:nth-child(1),
+            .footer-col:nth-child(2),
+            .footer-col:nth-child(3) {
                 flex: none;
                 width: 100%;
                 text-align: center;
+                margin-bottom: 30px;
+                padding: 0;
             }
             .footer-list li { justify-content: center; }
+            .footer-col h3 { text-align: center; }
+            .footer-bar { width: 100%; }
         }
     </style>
 </head>
@@ -371,13 +397,14 @@
         <div class="footer-content">
             <div class="footer-col">
                 <h3>STC 信陽電腦</h3>
-                <p>專注於資訊系統整合、網路建置與資安服務。位於桃園市政府旁，交通便利，服務對象涵蓋中小企業與公家機關。秉持專業、效率、誠信的理念，致力打造安全、智慧的資訊環境。</p>
+                <p>本公司位於風和公園旁的文中一路213巷上，交通便利，已有38年歷史，公司穩定成長。目前為 Lenovo 菁英經 銷商，EPSON 企業經銷商，INTEL黃金級經銷商、Microsoft 授權經銷商，聯強國際 A 級經銷商。</p>
+                <p>專業銷售 Dell、HP、Lenovo 等網路伺服器，代理經銷聯強、捷元、群環、展碁、精技等個人電腦及相關週邊，並提供系統整合、規劃服務、網路建置、機房維護等相關服務項目。</p>
             </div>
             
             <div class="footer-col">
                 <h3>聯絡我們</h3>
                 <ul class="footer-list">
-                    <li><i class="ri-map-pin-line"></i>地址：330桃園市桃園區文中一路213巷19號</li>
+                    <li><i class="ri-map-pin-line"></i>地址：桃園市桃園區文中一路213巷19號</li>
                     <li><i class="ri-phone-line"></i>電話：(03)336-1251</li>
                     <li><i class="ri-printer-line"></i>電話：(03)336-1259</li>
                     <li><i class="ri-mail-line"></i>Email：stc@stc.com.tw</li>
@@ -388,10 +415,12 @@
             <div class="footer-col">
                 <h3>快速連結</h3>
                 <ul class="footer-list">
-                    <li><a href="#about">關於我們</a></li>
-                    <li><a href="#services">專業服務</a></li>
-                    <li><a href="https://www.stc.com.tw/client_login.jsp">線上報修</a></li>
-                    <li><a href="https://www.104.com.tw/company/afg0pko" target="_blank">加入我們</a></li>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">專業服務</a></li>
+                    <li><a href="#">解決方案</a></li>
+                    <li><a href="#">資訊安全</a></li>
+                    <li><a href="#">線上報修</a></li>
+                    <li><a href="https://www.104.com.tw/company/afg0pko?jobsource=google" class="footer-link">加入我們</a></li>
                 </ul>
             </div>
         </div>
@@ -403,6 +432,7 @@
     </footer>
 
     <script>
+        /*===== 導覽選單控制 =====*/
         const navMenu = document.getElementById('nav-menu'),
             navToggle = document.getElementById('nav-toggle'),
             navLinks = document.querySelectorAll('.nav-link li a'),
@@ -425,6 +455,7 @@
             });
         });
 
+        /*===== IP 位址偵測 =====*/
         async function fetchIP() {
             try {
                 const response = await fetch('https://api.ipify.org?format=json');
