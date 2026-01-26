@@ -48,6 +48,7 @@
             max-width: 100%;
             height: auto;
         }
+
         /*=============== 導覽列 (NAV) ===============*/
         nav {
             display: flex;
@@ -120,13 +121,21 @@
                 display: flex;
                 column-gap: 15px;
             }
+            .nav-tool-btn li a span {
+                display: none;
+            }
+            .nav-tool-btn li a {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             .nav-tool-btn li a i {
-                font-size: 25px;
-                transition: transform 0.3s;
+                font-size: 24px;
+                margin-right: 0;
             }
-            .nav-tool-btn li a i:hover {
-                transform: scale(1.2);
-            }
+            
             .nav-toggle {
                 font-size: 25px;
                 cursor: pointer;
@@ -138,6 +147,7 @@
             
             .repair-2 { display: none; }
         }
+
         /* 桌機版導覽列 (1280px+) */
         @media screen and (min-width: 1280px) {
             nav { padding: 0 30px; }
@@ -206,21 +216,21 @@
         .footer-content {
             display: flex;
             flex-wrap: nowrap; 
-            width: 80%;
-            max-width: 1400px; 
+            width: 85%;
+            max-width: 1300px; 
             margin: 0 auto;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 30px;
-            gap: 50px;
+            gap: 40px;
         }
         .footer-col:nth-child(1) {
             flex: 2;
-            padding: 0 20px;
+            padding: 0 10px;
         }
         .footer-col:nth-child(2),
         .footer-col:nth-child(3) {
             flex: 1;
-            padding: 0 20px;
+            padding: 0 10px;
         }
         .footer-col h3 {
             color: var(--footer-primary);
@@ -266,6 +276,7 @@
         @media (max-width: 1024px) {
             .footer-content {
                 width: 90%; 
+                gap: 20px;
             }
         }
         @media (max-width: 768px) {
@@ -342,7 +353,7 @@
         <div class="footer-content">
             <div class="footer-col">
                 <h3>STC 信陽電腦</h3>
-                <p>本公司位於風和公園旁的文中一路213巷上，交通便利，已有38年歷史，公司穩定成長。目前為 Lenovo 菁英經 銷商，EPSON 企業經銷商，INTEL黃金級經銷商、Microsoft 授權經銷商，聯強國際 A 級經銷商。</p>
+                <p>本公司位於風和公園旁的文中一路213巷上，交通便利，已有38年歷史，公司穩定成長。目前為 Lenovo 菁英經銷商，EPSON 企業經銷商，INTEL黃金級經銷商、Microsoft 授權經銷商，聯強國際 A 級經銷商。</p>
                 <p>專業銷售 Dell、HP、Lenovo 等網路伺服器，代理經銷聯強、捷元、群環、展碁、精技等個人電腦及相關週邊，並提供系統整合、規劃服務、網路建置、機房維護等相關服務項目。</p>
             </div>
             <div class="footer-col">
