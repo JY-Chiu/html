@@ -60,7 +60,8 @@
             color: #000;
             align-items: center;
             justify-content: space-between;
-            z-index: 100;
+            /* 確保這排在最前面，蓋過滑出的選單 */
+            z-index: 1001; 
         }
         .nav-logo {
             width: 250px;
@@ -75,11 +76,13 @@
                 background-color: var(--nav-bg-color);
                 box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
                 border-top: 1px solid #fff;
-                z-index: 100;
-                top: -100%;
-                transition: top 0.5s ease;
+                /* 設定層級比 nav 低，實現從「後方」出現 */
+                z-index: 1000; 
+                top: -100%; 
+                transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             }
             .nav-menu.show-menu {
+                /* 滑動到導覽列高度 (60px) 的位置 */
                 top: 60px;
                 height: calc(100vh - 60px);
                 overflow-y: auto;
@@ -221,7 +224,7 @@
             margin: 0 auto;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 30px;
-            gap: 60px;
+            gap: 40px;
         }
         .footer-col:nth-child(1) {
             flex: 2;
@@ -305,16 +308,6 @@
         <div class="nav-logo">
             <a href="#"><img src="logo.png" alt="信陽電腦 LOGO"></a>
         </div>
-        <div class="nav-menu" id="nav-menu">
-            <ul class="nav-link">
-                <li><a href="#"><i class="ri-home-office-line"></i> 首頁</a></li>
-                <li><a href="#about"><i class="ri-sun-line"></i> 關於信陽</a></li>
-                <li><a href="#services"><i class="ri-service-line"></i> 專業服務</a></li>
-                <li><a href="#Solutions"><i class="ri-calendar-line"></i> 解決方案</a></li>
-                <li><a href="#security"><i class="ri-shield-keyhole-line"></i> 資訊安全</a></li>
-                <li class="repair-1"><a href="https://www.stc.com.tw/client_login.jsp"><i class="ri-wrench-line"></i> 報修服務</a></li>
-            </ul>
-        </div>
         <div class="nav-btn">
             <ul class="nav-tool-btn">
                 <li class="repair-2"><a href="https://www.stc.com.tw/client_login.jsp"><i class="ri-wrench-line"></i> 線上報修</a></li>
@@ -325,6 +318,16 @@
             </div>
         </div>
     </nav>
+    <div class="nav-menu" id="nav-menu">
+        <ul class="nav-link">
+            <li><a href="#"><i class="ri-home-office-line"></i> 首頁</a></li>
+            <li><a href="#about"><i class="ri-sun-line"></i> 關於信陽</a></li>
+            <li><a href="#services"><i class="ri-service-line"></i> 專業服務</a></li>
+            <li><a href="#Solutions"><i class="ri-calendar-line"></i> 解決方案</a></li>
+            <li><a href="#security"><i class="ri-shield-keyhole-line"></i> 資訊安全</a></li>
+            <li class="repair-1"><a href="https://www.stc.com.tw/client_login.jsp"><i class="ri-wrench-line"></i> 報修服務</a></li>
+        </ul>
+    </div>
     <header>
         <div class="header" id="home">
             <h1>信陽電腦科技有限公司</h1>
