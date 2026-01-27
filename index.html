@@ -60,12 +60,14 @@
             color: #000;
             align-items: center;
             justify-content: space-between;
+            /* 確保 nav 在最前面，遮住滑動中的選單 */
             z-index: 1001; 
         }
         .nav-logo {
             width: 250px;
             padding-left: 15px;
         }
+        
         /* 手機板導覽選單 */
         @media screen and (max-width: 1279px) {
             .nav-menu {
@@ -75,14 +77,18 @@
                 background-color: var(--nav-bg-color);
                 box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
                 border-top: 1px solid #fff;
+                /* 層級設為 1000，位於 nav (1001) 下方 */
                 z-index: 1000; 
-                top: -100%; 
-                transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                /* 初始位置藏在導覽列後方 */
+                top: 0; 
+                transform: translateY(-100%);
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                /* 確保不會蓋住內容，但在滑出後能撐滿 */
+                height: auto;
             }
             .nav-menu.show-menu {
-                top: 60px;
-                height: calc(100vh - 60px);
-                overflow-y: auto;
+                /* 滑出到導覽列高度下方 */
+                transform: translateY(60px);
             }
             .nav-link {
                 display: flex;
@@ -153,7 +159,7 @@
             nav { padding: 0 30px; }
             .nav-logo { width: 300px; }
             
-            /* --- 關鍵修正：讓電腦版選單顯示 --- */
+            /* 讓電腦版選單正常顯示 */
             .nav-menu {
                 position: static;
                 height: auto;
@@ -161,8 +167,8 @@
                 background: none;
                 box-shadow: none;
                 border: none;
+                transform: none; /* 取消手機版的位移 */
             }
-            /* ----------------------------- */
 
             .nav-toggle, .repair-1 { display: none; }
             .nav-link {
